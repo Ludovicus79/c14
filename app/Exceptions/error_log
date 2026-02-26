@@ -1,0 +1,136 @@
+[12-Oct-2025 19:53:16 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[18-Oct-2025 14:26:47 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[02-Nov-2025 02:43:25 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[02-Nov-2025 21:16:50 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[02-Nov-2025 21:17:35 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[02-Nov-2025 21:20:10 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[02-Nov-2025 21:20:54 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[06-Nov-2025 17:29:17 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[07-Nov-2025 12:04:44 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[07-Nov-2025 12:12:57 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[07-Nov-2025 12:13:49 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[07-Nov-2025 12:20:21 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[11-Nov-2025 19:37:37 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[18-Nov-2025 01:43:40 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[19-Nov-2025 19:54:27 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[01-Dec-2025 00:39:08 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[05-Dec-2025 01:19:56 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[11-Dec-2025 03:55:33 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[11-Dec-2025 07:48:35 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[13-Dec-2025 02:34:01 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[14-Dec-2025 19:07:39 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[15-Dec-2025 04:45:09 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[15-Dec-2025 04:45:40 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[15-Dec-2025 04:46:12 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[15-Dec-2025 09:04:29 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[21-Dec-2025 14:23:27 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[22-Dec-2025 11:50:20 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[23-Dec-2025 00:25:52 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[01-Jan-2026 23:03:46 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[16-Jan-2026 04:28:47 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[22-Jan-2026 12:43:01 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[22-Jan-2026 19:29:15 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[29-Jan-2026 15:47:08 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16
+[03-Feb-2026 23:39:46 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Exceptions\Handler' not found in /home/materiam/c14/c14/app/Exceptions/Handler.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Exceptions/Handler.php on line 16

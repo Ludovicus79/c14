@@ -1,0 +1,158 @@
+INFORME DE LA OPERACIÓN
+
+Referencia: referencia
+Estado: failed
+Linea del excel: 2
+Error de conexión con la aplicación java de la USAL, no se pudo comprobar si la molécula está duplicada.
+----------------------------------------------------------------------
+Referencia: ph02_409_1
+Estado: failed
+Linea del excel: 9
+Error de conexión con la aplicación java de la USAL, no se pudo comprobar si la molécula está duplicada.
+----------------------------------------------------------------------
+Referencia: ph02_409_2
+Estado: failed
+Linea del excel: 28
+Error de conexión con la aplicación java de la USAL, no se pudo comprobar si la molécula está duplicada.
+----------------------------------------------------------------------
+Referencia: ph02_409_3
+Estado: failed
+Linea del excel: 45
+Numeración de carbono repetida 2
+Error de conexión con la aplicación java de la USAL, no se pudo comprobar si la molécula está duplicada.
+----------------------------------------------------------------------
+Referencia: ja06_234_1
+Estado: failed
+Linea del excel: 70
+Error de conexión con la aplicación java de la USAL, no se pudo comprobar si la molécula está duplicada.
+----------------------------------------------------------------------
+Referencia: abc82_2361_1
+Estado: failed
+Linea del excel: 79
+Numeración de carbono repetida 
+Error de conexión con la aplicación java de la USAL, no se pudo comprobar si la molécula está duplicada.
+ALERTAS
+Faltan datos en uno de los carbonos
+----------------------------------------------------------------------
+Referencia: abc82_2361_1
+Estado: failed
+Linea del excel: 91
+Numeración de carbono repetida 
+Error de conexión con la aplicación java de la USAL, no se pudo comprobar si la molécula está duplicada.
+ALERTAS
+Faltan datos en uno de los carbonos
+----------------------------------------------------------------------
+Referencia: abc82_2361_2
+Estado: failed
+Linea del excel: 103
+Numeración de carbono repetida 
+Error de conexión con la aplicación java de la USAL, no se pudo comprobar si la molécula está duplicada.
+ALERTAS
+Faltan datos en uno de los carbonos
+----------------------------------------------------------------------
+Referencia: abc82_2361_3
+Estado: failed
+Linea del excel: 116
+Numeración de carbono repetida 
+Error de conexión con la aplicación java de la USAL, no se pudo comprobar si la molécula está duplicada.
+ALERTAS
+Faltan datos en uno de los carbonos
+----------------------------------------------------------------------
+Referencia: jfca14_55_1
+Estado: failed
+Linea del excel: 147
+Error de conexión con la aplicación java de la USAL, no se pudo comprobar si la molécula está duplicada.
+----------------------------------------------------------------------
+Referencia: NMRShiftDB_1
+Estado: failed
+Linea del excel: 164
+Error de conexión con la aplicación java de la USAL, no se pudo comprobar si la molécula está duplicada.
+----------------------------------------------------------------------
+Referencia: mrc07_781_1
+Estado: failed
+Linea del excel: 178
+Numeración de carbono repetida 
+Error de conexión con la aplicación java de la USAL, no se pudo comprobar si la molécula está duplicada.
+ALERTAS
+Faltan datos en uno de los carbonos
+----------------------------------------------------------------------
+Referencia: mrc07_781_2
+Estado: failed
+Linea del excel: 189
+Numeración de carbono repetida 
+Error de conexión con la aplicación java de la USAL, no se pudo comprobar si la molécula está duplicada.
+ALERTAS
+Faltan datos en uno de los carbonos
+----------------------------------------------------------------------
+Referencia: mrc07_781_3
+Estado: failed
+Linea del excel: 208
+Numeración de carbono repetida 
+Error de conexión con la aplicación java de la USAL, no se pudo comprobar si la molécula está duplicada.
+ALERTAS
+Faltan datos en uno de los carbonos
+----------------------------------------------------------------------
+Referencia: mrc07_781_4
+Estado: failed
+Linea del excel: 220
+Numeración de carbono repetida 
+Error de conexión con la aplicación java de la USAL, no se pudo comprobar si la molécula está duplicada.
+ALERTAS
+Faltan datos en uno de los carbonos
+----------------------------------------------------------------------
+Referencia: mrc07_781_5
+Estado: failed
+Linea del excel: 238
+Numeración de carbono repetida 
+Error de conexión con la aplicación java de la USAL, no se pudo comprobar si la molécula está duplicada.
+ALERTAS
+Faltan datos en uno de los carbonos
+----------------------------------------------------------------------
+Referencia: np03_1302_1
+Estado: failed
+Linea del excel: 293
+Numeración de carbono repetida 
+Error de conexión con la aplicación java de la USAL, no se pudo comprobar si la molécula está duplicada.
+ALERTAS
+Faltan datos en uno de los carbonos
+----------------------------------------------------------------------
+Referencia: np16_1347_1
+Estado: failed
+Linea del excel: 369
+Numeración de carbono repetida 
+Error de conexión con la aplicación java de la USAL, no se pudo comprobar si la molécula está duplicada.
+ALERTAS
+Faltan datos en uno de los carbonos
+----------------------------------------------------------------------
+Referencia: np16_1347_2
+Estado: failed
+Linea del excel: 390
+Numeración de carbono repetida 
+Error de conexión con la aplicación java de la USAL, no se pudo comprobar si la molécula está duplicada.
+ALERTAS
+Faltan datos en uno de los carbonos
+----------------------------------------------------------------------
+Referencia: np16_1347_3
+Estado: failed
+Linea del excel: 410
+Numeración de carbono repetida 
+Error de conexión con la aplicación java de la USAL, no se pudo comprobar si la molécula está duplicada.
+ALERTAS
+Faltan datos en uno de los carbonos
+----------------------------------------------------------------------
+Referencia: np16_1347_4
+Estado: failed
+Linea del excel: 431
+Numeración de carbono repetida 
+Error de conexión con la aplicación java de la USAL, no se pudo comprobar si la molécula está duplicada.
+ALERTAS
+Faltan datos en uno de los carbonos
+----------------------------------------------------------------------
+Referencia: np16_1347_5
+Estado: failed
+Linea del excel: 452
+Numeración de carbono repetida 
+Error de conexión con la aplicación java de la USAL, no se pudo comprobar si la molécula está duplicada.
+ALERTAS
+Faltan datos en uno de los carbonos
+----------------------------------------------------------------------
