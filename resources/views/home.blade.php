@@ -931,7 +931,7 @@
     <div class="cards-grid">
         <a href="{{ url('search/byName') }}" class="search-card">
             <div class="card-img">
-                <img src="{{ asset('images/imagen1.jpg') }}" alt="By Name">
+                <img src="{{ asset('images/imagen1.png') }}" alt="By Name">
             </div>
             <div class="card-body">
                 <span class="card-num">01</span>

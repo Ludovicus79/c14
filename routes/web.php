@@ -48,6 +48,8 @@ Route::get('conditions', [PagesController::class, 'conditions']);
 Route::get('acknowledgment', [PagesController::class, 'acknow']);
 Route::get('help', [PagesController::class, 'help']);
 Route::get('contributors', [PagesController::class, 'contributors']);
+Route::get('about', [PagesController::class, 'about']);
+Route::get('contact', [PagesController::class, 'contact']);
 Route::get('normalizedb', [AdminController::class, 'normalizedb']);
 
 Route::middleware('auth')->group(function () {

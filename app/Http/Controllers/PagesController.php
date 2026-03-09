@@ -32,4 +32,14 @@ class PagesController extends Controller
     public function developers() {
         return view('developers');
     }
+
+     public function about()
+    {
+        return view('about');
+    }
+
+    public function contact()
+    {
+        return view('contact');
+    }
 }

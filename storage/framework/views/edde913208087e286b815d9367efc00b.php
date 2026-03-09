@@ -929,7 +929,7 @@
     <div class="cards-grid">
         <a href="<?php echo e(url('search/byName')); ?>" class="search-card">
             <div class="card-img">
-                <img src="<?php echo e(asset('images/imagen1.jpg')); ?>" alt="By Name">
+                <img src="<?php echo e(asset('images/imagen1.png')); ?>" alt="By Name">
             </div>
             <div class="card-body">
                 <span class="card-num">01</span>
