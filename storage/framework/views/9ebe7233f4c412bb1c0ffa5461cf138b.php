@@ -54,6 +54,8 @@
                 $("#it").removeClass("inactive");
             } else {
                 $("#es").removeClass("inactive");
+          } else if (idioma.indexOf("zh") > -1) {
+                $("#zh").removeClass("inactive");
             }
 
             var docHeight = $(window).height();
@@ -104,6 +106,12 @@
                         <img id="po" class="logo inactive" src="<?php echo asset('images/pt.png'); ?>" alt="">
                     </a>
                 </li>
+                
+                <li> 
+                <a href="<?php echo route('lang.switch', 'zh'); ?>">
+                        <img id="zh" class="logo inactive" src="<?php echo asset('images/zh.png'); ?>" alt="">
+                    </a>
+                        </li>
             </ul>
         </div>
         <div class="col-md-offset-4 col-md-5 col-xs-12 text-center">

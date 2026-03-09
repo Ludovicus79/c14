@@ -7,4 +7,5 @@
         'fr' => 'Français',
         'it' => 'Italiano',
         'pt' => 'Português',
+        'zh' => 'chinese',
     ];

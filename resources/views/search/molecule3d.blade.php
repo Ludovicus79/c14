@@ -4,109 +4,348 @@
     <meta charset="UTF-8">
     <title>3D Molecule - {{ $molecule->name ?? 'Molecule' }}</title>
     
-    <!-- 3Dmol.js -->
-    <script src="https://3Dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
+    <!-- NGL Viewer -->
+    <script src="https://cdn.jsdelivr.net/gh/arose/ngl@v2.0.0-dev.37/dist/ngl.js"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
             min-height: 100vh;
             color: white;
+            overflow-x: hidden;
         }
         
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
+        /* Header simplificado - SOLO NOMBRE */
         .header {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 20px 32px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
+            z-index: 100;
         }
         
-        h1 {
-            margin: 0 0 10px 0;
-            font-size: 24px;
-            font-weight: 600;
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0,212,255,0.5), transparent);
         }
         
-        .meta {
-            color: #888;
-            font-size: 14px;
-        }
-        
-        .meta span {
-            margin-right: 20px;
+        .header-content h1 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00d4ff 0%, #7b2cbf 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .btn-close {
-            background: #e74c3c;
+            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
             color: white;
             border: none;
             padding: 12px 24px;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
             font-size: 14px;
-            font-weight: bold;
-            transition: all 0.3s;
-            flex-shrink: 0;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255,75,43,0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
         .btn-close:hover {
-            background: #c0392b;
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255,75,43,0.4);
         }
         
-        .viewer-container {
-            background: #000;
-            border-radius: 15px;
+        /* Contenedor principal */
+        .main-container {
+            padding: 20px 32px 32px 32px;
+            display: flex;
+            gap: 24px;
+            min-height: calc(100vh - 80px);
+        }
+        
+        /* Panel del visor */
+        .viewer-panel {
+            flex: 1;
+            background: rgba(0,0,0,0.4);
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 25px 80px rgba(0,0,0,0.6);
-            height: 650px;
             position: relative;
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            min-height: 600px;
         }
         
+        /* El canvas de NGL */
         #viewport {
             width: 100%;
             height: 100%;
+            min-height: 600px;
             position: relative;
         }
         
-        /* IMPORTANTE: El canvas debe tener pointer-events activos */
-        #viewport canvas {
-            display: block;
-            width: 100% !important;
-            height: 100% !important;
-        }
-        
-        .loading {
+        /* Controles flotantes - TODOS EN UNA LÍNEA */
+        .controls-bar {
             position: absolute;
-            top: 50%;
+            bottom: 24px;
             left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            z-index: 10;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            background: rgba(10,10,30,0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 14px 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(0,212,255,0.2);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4), 0 0 20px rgba(0,212,255,0.1);
+            z-index: 50;
+            white-space: nowrap;
+            max-width: 95%;
+            overflow-x: auto;
         }
         
-        .loading .spinner {
+        .controls-bar button {
+            background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        
+        .controls-bar button:hover {
+            background: linear-gradient(145deg, rgba(0,212,255,0.2), rgba(0,212,255,0.1));
+            border-color: rgba(0,212,255,0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,212,255,0.2);
+        }
+        
+        .controls-bar button.active {
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            border-color: #00d4ff;
+            box-shadow: 0 4px 15px rgba(0,212,255,0.4);
+        }
+        
+        /* Sidebar info - SOLO ESTADÍSTICAS */
+        .info-sidebar {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .info-card {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .info-card h3 {
+            margin: 0 0 20px 0;
+            font-size: 14px;
+            color: #00d4ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .stat-row:last-child {
+            border-bottom: none;
+        }
+        
+        .stat-label {
+            color: rgba(255,255,255,0.5);
+            font-size: 13px;
+        }
+        
+        .stat-value {
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            font-family: 'SF Mono', monospace;
+        }
+        
+        /* Status badge */
+        .status-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 8px;
+        }
+        
+        .status-badge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .status-badge.loading {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            color: #000;
+            animation: pulse 2s infinite;
+        }
+        
+        .status-badge.ready {
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            color: #000;
+        }
+        
+        .status-badge.error {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        /* Tooltip moderno */
+        .atom-tooltip {
+            position: fixed;
+            background: rgba(10,10,30,0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0,212,255,0.3);
+            color: white;
+            padding: 20px 24px;
+            border-radius: 16px;
+            font-size: 14px;
+            pointer-events: none;
+            display: none;
+            z-index: 10000;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(0,212,255,0.1);
+            min-width: 240px;
+        }
+        
+        .atom-tooltip .atom-header {
+            font-size: 18px;
+            font-weight: 700;
+            color: #00d4ff;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(0,212,255,0.2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .atom-tooltip .atom-number {
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            color: #000;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        
+        .atom-tooltip .coord-section {
+            margin-top: 12px;
+        }
+        
+        .atom-tooltip .coord-label {
+            color: rgba(0,212,255,0.8);
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .atom-tooltip .coord-line {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            padding: 10px 14px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .atom-tooltip .coord-axis {
+            color: rgba(255,255,255,0.5);
+            font-weight: 600;
+            min-width: 30px;
+        }
+        
+        .atom-tooltip .coord-value {
+            color: white;
+            font-weight: 500;
+            font-family: 'SF Mono', monospace;
+            font-size: 14px;
+        }
+        
+        /* Loading */
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 40;
+        }
+        
+        .loading-spinner {
             width: 60px;
             height: 60px;
-            border: 4px solid rgba(255,255,255,0.1);
+            border: 4px solid rgba(0,212,255,0.1);
             border-top: 4px solid #00d4ff;
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
+            margin-bottom: 20px;
         }
         
         @keyframes spin {
@@ -114,218 +353,10 @@
             100% { transform: rotate(360deg); }
         }
         
-        /* Controles horizontales tipo Molstar */
-        .controls {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-            background: rgba(10,10,30,0.95);
-            padding: 14px 20px;
-            border-radius: 14px;
-            backdrop-filter: blur(20px);
-            overflow-x: auto;
-            overflow-y: hidden;
-            white-space: nowrap;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            z-index: 100;
-        }
-        
-        .controls::-webkit-scrollbar {
-            height: 6px;
-        }
-        
-        .controls::-webkit-scrollbar-thumb {
-            background: rgba(0,212,255,0.5);
-            border-radius: 3px;
-        }
-        
-        .controls button {
-            background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
-            border: 1px solid rgba(255,255,255,0.15);
-            color: white;
-            padding: 12px 22px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            flex-shrink: 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .controls button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-        
-        .controls button:hover::before {
-            left: 100%;
-        }
-        
-        .controls button:hover {
-            background: linear-gradient(145deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,212,255,0.3);
-            border-color: rgba(0,212,255,0.5);
-        }
-        
-        .controls button.active {
-            background: linear-gradient(145deg, #00d4ff, #0099cc);
-            border-color: #00d4ff;
-            box-shadow: 0 5px 20px rgba(0,212,255,0.4);
-        }
-        
-        /* Info panel */
-        .info-panel {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(10,10,30,0.95);
-            padding: 20px;
-            border-radius: 14px;
-            backdrop-filter: blur(20px);
-            min-width: 240px;
-            max-width: 320px;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            z-index: 100;
-        }
-        
-        .info-panel h3 {
-            margin: 0 0 15px 0;
-            font-size: 13px;
+        .loading-text {
             color: #00d4ff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
             font-weight: 600;
-        }
-        
-        .atom-info {
-            font-size: 12px;
-            color: #aaa;
-            line-height: 1.8;
-        }
-        
-        .atom-info .label {
-            color: #666;
-            display: inline-block;
-            width: 80px;
-        }
-        
-        .atom-info .value {
-            color: #fff;
-            font-weight: 500;
-        }
-        
-        .status-badge {
-            display: inline-block;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-top: 12px;
-            letter-spacing: 1px;
-        }
-        
-        .status-badge.loading {
-            background: linear-gradient(145deg, #f39c12, #e67e22);
-            color: #000;
-        }
-        
-        .status-badge.ready {
-            background: linear-gradient(145deg, #00d4ff, #0099cc);
-            color: #000;
-        }
-        
-        .status-badge.error {
-            background: linear-gradient(145deg, #e74c3c, #c0392b);
-            color: white;
-        }
-        
-        /* Tooltip - POSICIONADO EN PANTALLA */
-        .atom-tooltip {
-            position: fixed;
-            background: rgba(10,10,30,0.98);
-            border: 2px solid #00d4ff;
-            color: white;
-            padding: 16px 20px;
-            border-radius: 12px;
-            font-size: 13px;
-            pointer-events: none;
-            display: none;
-            z-index: 10000;
-            box-shadow: 0 15px 50px rgba(0,212,255,0.5);
-            min-width: 220px;
-            backdrop-filter: blur(20px);
-        }
-        
-        .atom-tooltip .atom-header {
             font-size: 16px;
-            font-weight: bold;
-            color: #00d4ff;
-            margin-bottom: 12px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(0,212,255,0.3);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .atom-tooltip .atom-number {
-            background: #00d4ff;
-            color: #000;
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 12px;
-        }
-        
-        .atom-tooltip .coord-section {
-            margin-top: 8px;
-        }
-        
-        .atom-tooltip .coord-label {
-            color: #00d4ff;
-            font-weight: 600;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-        
-        .atom-tooltip .coord-line {
-            display: flex;
-            justify-content: space-between;
-            margin: 6px 0;
-            padding: 6px 10px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 6px;
-        }
-        
-        .atom-tooltip .coord-axis {
-            color: #888;
-            font-weight: 600;
-            min-width: 25px;
-        }
-        
-        .atom-tooltip .coord-value {
-            color: white;
-            font-weight: 500;
-            font-family: 'SF Mono', 'Courier New', monospace;
-            font-size: 13px;
         }
         
         /* Error message */
@@ -335,7 +366,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
-            z-index: 10;
+            z-index: 50;
         }
         
         .error-message .icon {
@@ -356,122 +387,211 @@
         }
         
         .error-message button {
-            background: #e74c3c;
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
             color: white;
             border: none;
-            padding: 12px 30px;
-            border-radius: 8px;
+            padding: 14px 32px;
+            border-radius: 12px;
             cursor: pointer;
             font-size: 14px;
-            font-weight: bold;
-            transition: all 0.3s;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
         
         .error-message button:hover {
-            background: #c0392b;
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(231,76,60,0.4);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .info-sidebar {
+                width: 260px;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .main-container {
+                flex-direction: column;
+                height: auto;
+                min-height: auto;
+            }
+            
+            .info-sidebar {
+                width: 100%;
+            }
+            
+            .viewer-panel {
+                height: 500px;
+                min-height: 400px;
+            }
+            
+            .controls-bar {
+                bottom: 16px;
+                padding: 12px 16px;
+                gap: 6px;
+            }
+            
+            .controls-bar button {
+                padding: 8px 12px;
+                font-size: 11px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div>
-                <h1>{{ $molecule->name ?? 'Molecule' }}</h1>
-                <div class="meta">
-                    @if(isset($molecule->molecularFormula))
-                    <span><strong>Formula:</strong> {{ $molecule->molecularFormula }}</span>
-                    @endif
-                    @if(isset($molecule->molecularWeight))
-                    <span><strong>MW:</strong> {{ $molecule->molecularWeight }}</span>
-                    @endif
-                </div>
+    <!-- Header simplificado - SOLO NOMBRE -->
+    <div class="header">
+        <div class="header-content">
+            <h1>{{ $molecule->name ?? 'Molecule' }}</h1>
+        </div>
+        <button class="btn-close" onclick="window.close()">
+            <span>✕</span> Close
+        </button>
+    </div>
+    
+    <div class="main-container">
+        <div class="viewer-panel">
+            <div id="viewport"></div>
+            
+            <!-- Loading -->
+            <div id="loading" class="loading-overlay">
+                <div class="loading-spinner"></div>
+                <div class="loading-text">Loading 3D structure...</div>
             </div>
-            <button class="btn-close" onclick="window.close()">✕ Close</button>
+            
+            <!-- Controles flotantes - TODOS EN UNA LÍNEA -->
+            <div class="controls-bar">
+                <button id="btn-stick" class="active" onclick="setStyle('stick')">
+                    <span>🥢</span> Stick
+                </button>
+                <button id="btn-ballstick" onclick="setStyle('ball-and-stick')">
+                    <span>⚪</span> Ball & Stick
+                </button>
+                <button id="btn-line" onclick="setStyle('line')">
+                    <span>📏</span> Line
+                </button>
+                <button id="btn-spacefill" onclick="setStyle('spacefill')">
+                    <span>🔮</span> Spacefill
+                </button>
+                <button id="btn-spin" onclick="toggleSpin()">
+                    <span>🔄</span> Spin
+                </button>
+                <button onclick="resetView()">
+                    <span>🎯</span> Reset
+                </button>
+                <button id="btn-labels" onclick="toggleLabels()">
+                    <span>🏷️</span> Labels
+                </button>
+            </div>
         </div>
         
-        <div class="viewer-container">
-            <div id="viewport">
-                <div id="loading" class="loading">
-                    <div class="spinner"></div>
-                    <div style="color: #00d4ff; font-weight: 600;">Loading 3D structure...</div>
+        <!-- Sidebar info - SOLO ESTADÍSTICAS -->
+        <div class="info-sidebar">
+            <div class="info-card">
+                <h3>📊 Statistics</h3>
+                <div class="stat-row">
+                    <span class="stat-label">Name</span>
+                    <span class="stat-value">{{ $molecule->name ?? '-' }}</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Formula</span>
+                    <span class="stat-value">{{ $molecule->molecularFormula ?? '-' }}</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Molecular Weight</span>
+                    <span class="stat-value">{{ $molecule->molecularWeight ?? '-' }}</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Database ID</span>
+                    <span class="stat-value">#{{ $molecule->id ?? '-' }}</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Atoms</span>
+                    <span class="stat-value" id="atom-count">-</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Bonds</span>
+                    <span class="stat-value" id="bond-count">-</span>
+                </div>
+                <div class="status-container">
+                    <div id="status-badge" class="status-badge loading">Loading</div>
                 </div>
             </div>
-            
-            <!-- Controles -->
-            <div class="controls">
-                <button id="btn-stick" class="active" onclick="setStyle('stick')">🥢 Stick</button>
-                <button id="btn-ballstick" onclick="setStyle('ball-and-stick')">⚪ Ball & Stick</button>
-                <button id="btn-line" onclick="setStyle('line')">📏 Line</button>
-                <button id="btn-spacefill" onclick="setStyle('spacefill')">🔮 Spacefill</button>
-                <button id="btn-spin" onclick="toggleSpin()">🔄 Spin</button>
-                <button onclick="resetView()">🎯 Reset</button>
-                <button id="btn-labels" onclick="toggleLabels()">🏷️ Labels</button>
+        </div>
+    </div>
+    
+    <!-- Tooltip -->
+    <div id="atom-tooltip" class="atom-tooltip">
+        <div class="atom-header">
+            <span class="atom-number">#<span id="tooltip-atom-num">1</span></span>
+            <span id="tooltip-element">C</span>
+        </div>
+        <div class="coord-section">
+            <div class="coord-label">Position (Å)</div>
+            <div class="coord-line">
+                <span class="coord-axis">X:</span>
+                <span class="coord-value" id="tooltip-x">0.000</span>
             </div>
-            
-            <!-- Panel de información -->
-            <div class="info-panel">
-                <h3>📊 Structure Info</h3>
-                <div class="atom-info">
-                    <div><span class="label">Atoms:</span> <span class="value" id="atom-count">-</span></div>
-                    <div><span class="label">Bonds:</span> <span class="value" id="bond-count">-</span></div>
-                    <div><span class="label">Source:</span> <span class="value" id="source-info">-</span></div>
-                </div>
-                <div id="status-badge" class="status-badge loading">Loading</div>
+            <div class="coord-line">
+                <span class="coord-axis">Y:</span>
+                <span class="coord-value" id="tooltip-y">0.000</span>
             </div>
-            
-            <!-- Tooltip -->
-            <div id="atom-tooltip" class="atom-tooltip">
-                <div class="atom-header">
-                    <span class="atom-number">#<span id="tooltip-atom-num">1</span></span>
-                    <span id="tooltip-element">C</span>
-                </div>
-                <div class="coord-section">
-                    <div class="coord-label">Position (Å)</div>
-                    <div class="coord-line">
-                        <span class="coord-axis">X:</span>
-                        <span class="coord-value" id="tooltip-x">0.000</span>
-                    </div>
-                    <div class="coord-line">
-                        <span class="coord-axis">Y:</span>
-                        <span class="coord-value" id="tooltip-y">0.000</span>
-                    </div>
-                    <div class="coord-line">
-                        <span class="coord-axis">Z:</span>
-                        <span class="coord-value" id="tooltip-z">0.000</span>
-                    </div>
-                </div>
+            <div class="coord-line">
+                <span class="coord-axis">Z:</span>
+                <span class="coord-value" id="tooltip-z">0.000</span>
             </div>
         </div>
     </div>
 
     <script>
-        var viewer;
+        var stage;
+        var structureComponent;
+        var representation;
+        var labelRepresentation = null;
         var currentStyle = 'stick';
-        var structureLoaded = false;
         var isSpinning = false;
         var labelsVisible = false;
         var atomDataList = [];
-        var model = null;
         
         var smilesData = "{{ $molecule->smiles ?? '' }}";
-
-        window.onload = function() {
+        var molData = @json($molecule->mol ?? null);
+        
+        // Inicializar NGL Viewer
+        document.addEventListener('DOMContentLoaded', function() {
             initViewer();
-        };
+        });
         
         function initViewer() {
-            var element = document.getElementById('viewport');
-            var config = { 
-                backgroundColor: 'black',
-                antialias: true
-            };
-            viewer = $3Dmol.createViewer(element, config);
+            var viewport = document.getElementById('viewport');
             
-            if (smilesData) {
+            // Crear Stage de NGL
+            stage = new NGL.Stage(viewport, {
+                backgroundColor: 'black',
+                clipNear: 0,
+                clipFar: 100,
+                fogNear: 50,
+                fogFar: 100
+            });
+            
+            // Manejar resize
+            window.addEventListener('resize', function() {
+                stage.handleResize();
+            });
+            
+            // Verificar si hay datos MOL directos
+            if (molData && molData.trim() !== '' && molData !== 'null') {
+                console.log('Loading from MOL data');
+                loadStructure(molData, 'Database');
+                return;
+            }
+            
+            // Si no, intentar con SMILES
+            if (smilesData && smilesData.trim() !== '') {
+                console.log('Loading from SMILES');
                 loadFromSMILES(smilesData);
             } else {
-                showError('No structure available', 'SMILES data not found');
+                showError('No structure available', 'No MOL or SMILES data found');
             }
         }
         
@@ -497,24 +617,47 @@
                 var info = parseSDFInfo(sdfData);
                 document.getElementById('atom-count').textContent = info.atoms || '?';
                 document.getElementById('bond-count').textContent = info.bonds || '?';
-                document.getElementById('source-info').textContent = source;
                 
-                viewer.clear();
-                model = viewer.addModel(sdfData, 'sdf');
+                // Crear blob del SDF
+                var blob = new Blob([sdfData], {type: 'chemical/x-mdl-sdfile'});
                 
-                // Guardar referencia a los átomos
-                atomDataList = model.selectedAtoms({});
-                
-                setStyle('stick');
-                viewer.zoomTo();
-                viewer.render();
-                
-                structureLoaded = true;
-                updateStatus('ready', 'Ready');
-                hideLoading();
-                
-                // Configurar eventos de mouse manualmente
-                setupMouseTracking();
+                // Cargar en NGL
+                stage.loadFile(blob, {ext: 'sdf', defaultRepresentation: false})
+                    .then(function(component) {
+                        structureComponent = component;
+                        
+                        // Guardar datos de átomos
+                        var structure = component.structure;
+                        atomDataList = [];
+                        
+                        structure.eachAtom(function(ap) {
+                            atomDataList.push({
+                                index: ap.index,
+                                atomNumber: ap.serial + 1,
+                                element: ap.element,
+                                x: ap.x,
+                                y: ap.y,
+                                z: ap.z,
+                                atomProxy: ap
+                            });
+                        });
+                        
+                        // Aplicar estilo inicial (Stick por defecto)
+                        setStyle('stick');
+                        
+                        // Auto zoom
+                        stage.autoView();
+                        
+                        // Configurar hover
+                        setupHover();
+                        
+                        updateStatus('ready', 'Ready');
+                        hideLoading();
+                    })
+                    .catch(function(error) {
+                        console.error('Load error:', error);
+                        showError('Error loading structure', error.message);
+                    });
                 
             } catch(e) {
                 console.error('Load error:', e);
@@ -546,103 +689,52 @@
             return { atoms: atoms, bonds: bonds };
         }
         
-        // Configurar tracking de mouse manual
-        function setupMouseTracking() {
-            var canvas = document.querySelector('#viewport canvas');
-            var tooltip = document.getElementById('atom-tooltip');
+        // Configurar hover con picking nativo de NGL
+        function setupHover() {
+            var lastAtom = null;
             
-            if (!canvas || !viewer) return;
-            
-            // Variables para control
-            var isDragging = false;
-            var mouseDown = false;
-            
-            canvas.addEventListener('mousedown', function() {
-                mouseDown = true;
-                isDragging = false;
-            });
-            
-            canvas.addEventListener('mousemove', function(e) {
-                if (mouseDown) isDragging = true;
-                
-                // Solo mostrar tooltip si no está arrastrando
-                if (!isDragging && structureLoaded) {
-                    checkAtomUnderMouse(e);
-                }
-            });
-            
-            canvas.addEventListener('mouseup', function() {
-                mouseDown = false;
-                setTimeout(function() { isDragging = false; }, 50);
-            });
-            
-            canvas.addEventListener('mouseleave', function() {
-                hideTooltip();
-                mouseDown = false;
-                isDragging = false;
-            });
-        }
-        
-        // Verificar qué átomo está bajo el cursor
-        function checkAtomUnderMouse(e) {
-            if (!viewer || !model) return;
-            
-            var canvas = document.querySelector('#viewport canvas');
-            var rect = canvas.getBoundingClientRect();
-            
-            // Calcular posición relativa al canvas
-            var x = e.clientX - rect.left;
-            var y = e.clientY - rect.top;
-            
-            // Usar el método de picking de 3Dmol
-            var atoms = model.selectedAtoms({});
-            var closestAtom = null;
-            var closestDist = Infinity;
-            var threshold = 30; // Radio de detección en píxeles
-            
-            for (var i = 0; i < atoms.length; i++) {
-                var atom = atoms[i];
-                
-                // Proyección 3D a 2D
-                var screenPos = viewer.modelToScreen(atom);
-                
-                if (screenPos) {
-                    var dx = screenPos.x - x;
-                    var dy = screenPos.y - y;
-                    var dist = Math.sqrt(dx * dx + dy * dy);
+            stage.mouseControls.add('hover', function(stage, pickingProxy) {
+                if (pickingProxy && pickingProxy.atom) {
+                    var atomProxy = pickingProxy.atom;
+                    var atomIndex = atomProxy.index;
+                    var atomData = atomDataList[atomIndex];
                     
-                    if (dist < threshold && dist < closestDist) {
-                        closestDist = dist;
-                        closestAtom = atom;
-                        closestAtom.index = i; // Guardar índice
+                    if (atomData && (!lastAtom || lastAtom.index !== atomData.index)) {
+                        lastAtom = atomData;
+                        
+                        var mx = stage.mouseObserver.x;
+                        var my = stage.mouseObserver.y;
+                        
+                        showTooltip(atomData, mx, my);
                     }
+                } else {
+                    lastAtom = null;
+                    hideTooltip();
                 }
-            }
-            
-            if (closestAtom) {
-                showTooltip(closestAtom, e);
-            } else {
-                hideTooltip();
-            }
+            });
         }
         
-        function showTooltip(atom, event) {
+        function showTooltip(atom, mouseX, mouseY) {
             var tooltip = document.getElementById('atom-tooltip');
             
-            // Actualizar contenido
-            document.getElementById('tooltip-atom-num').textContent = (atom.index + 1);
-            document.getElementById('tooltip-element').textContent = atom.elem || 'C';
+            document.getElementById('tooltip-atom-num').textContent = atom.atomNumber;
+            document.getElementById('tooltip-element').textContent = atom.element || 'C';
             document.getElementById('tooltip-x').textContent = atom.x.toFixed(3);
             document.getElementById('tooltip-y').textContent = atom.y.toFixed(3);
             document.getElementById('tooltip-z').textContent = atom.z.toFixed(3);
             
-            // Posicionar tooltip
-            var x = event.clientX + 20;
-            var y = event.clientY - 100;
+            var x = mouseX + 20;
+            var y = mouseY - 120;
             
-            // Evitar salir de pantalla
-            if (x + 240 > window.innerWidth) x = event.clientX - 260;
-            if (y < 0) y = event.clientY + 20;
+            var tooltipWidth = 240;
+            var tooltipHeight = 180;
+            
+            if (x + tooltipWidth > window.innerWidth) {
+                x = mouseX - tooltipWidth - 20;
+            }
+            if (y < 0) {
+                y = mouseY + 20;
+            }
             
             tooltip.style.left = x + 'px';
             tooltip.style.top = y + 'px';
@@ -653,46 +745,71 @@
             document.getElementById('atom-tooltip').style.display = 'none';
         }
         
+        // FUNCIÓN CORREGIDA - setStyle con Stick y Ball & Stick funcionando correctamente
         function setStyle(style) {
-            if (!viewer || !structureLoaded) return;
+            if (!structureComponent) {
+                console.warn('Structure not loaded yet');
+                return;
+            }
             
             currentStyle = style;
-            viewer.removeAllLabels();
-            viewer.setStyle({}, {});
             
+            // Remover TODAS las representaciones existentes
+            structureComponent.removeAllRepresentations();
+            labelRepresentation = null;
+            
+            // Crear nueva representación según el estilo
             switch(style) {
                 case 'stick':
-                    viewer.setStyle({}, {
-                        stick: { radius: 0.15, colorscheme: 'rasmol' }
+                    // Stick puro: líneas delgadas sin esferas visibles
+                    representation = structureComponent.addRepresentation('licorice', {
+                        colorScheme: 'element',
+                        radius: 0.15,
+                        multipleBond: 'symmetric'
                     });
                     break;
+                    
                 case 'ball-and-stick':
-                    viewer.setStyle({}, {
-                        sphere: { scale: 0.3, colorscheme: 'rasmol' },
-                        stick: { radius: 0.2, colorscheme: 'rasmol' }
+                    // Ball & Stick CORREGIDO: usar 'ball+stick' con parámetros correctos
+                    representation = structureComponent.addRepresentation('ball+stick', {
+                        aspectRatio: 1.5,
+                        radiusSize: 0.3,
+                        ballScale: 0.5,
+                        colorScheme: 'element',
+                        multipleBond: 'symmetric'
                     });
                     break;
+                    
                 case 'line':
-                    viewer.setStyle({}, {
-                        line: { linewidth: 2, colorscheme: 'rasmol' }
+                    representation = structureComponent.addRepresentation('line', {
+                        colorScheme: 'element',
+                        linewidth: 2
                     });
                     break;
+                    
                 case 'spacefill':
-                    viewer.setStyle({}, {
-                        sphere: { scale: 1.0, colorscheme: 'rasmol' }
+                    representation = structureComponent.addRepresentation('spacefill', {
+                        colorScheme: 'element'
                     });
                     break;
             }
             
-            if (labelsVisible) addLabels();
-            viewer.render();
+            // Restaurar labels si estaban activos
+            if (labelsVisible) {
+                setTimeout(function() {
+                    addLabels();
+                }, 50);
+            }
+            
             updateActiveButton(style);
         }
         
         function updateActiveButton(style) {
-            var buttons = document.querySelectorAll('.controls button');
+            // Quitar active de todos
+            var buttons = document.querySelectorAll('.controls-bar button');
             buttons.forEach(btn => btn.classList.remove('active'));
             
+            // Mapeo de estilos a IDs de botones
             var btnMap = {
                 'stick': 'btn-stick',
                 'ball-and-stick': 'btn-ballstick',
@@ -700,28 +817,35 @@
                 'spacefill': 'btn-spacefill'
             };
             
-            var btn = document.getElementById(btnMap[style]);
-            if (btn) btn.classList.add('active');
+            var btnId = btnMap[style];
+            if (btnId) {
+                var btn = document.getElementById(btnId);
+                if (btn) btn.classList.add('active');
+            }
         }
         
         function toggleSpin() {
-            if (!viewer) return;
+            if (!stage) return;
             isSpinning = !isSpinning;
-            viewer.spin(isSpinning);
+            
+            if (isSpinning) {
+                stage.setSpin(true);
+            } else {
+                stage.setSpin(false);
+            }
             
             var btn = document.getElementById('btn-spin');
             btn.classList.toggle('active', isSpinning);
-            btn.innerHTML = isSpinning ? '⏹ Stop' : '🔄 Spin';
+            btn.innerHTML = isSpinning ? '<span>⏹</span> Stop' : '<span>🔄</span> Spin';
         }
         
         function resetView() {
-            if (!viewer) return;
-            viewer.zoomTo();
-            viewer.render();
+            if (!stage) return;
+            stage.autoView();
         }
         
         function toggleLabels() {
-            if (!viewer || !structureLoaded) return;
+            if (!structureComponent) return;
             labelsVisible = !labelsVisible;
             
             var btn = document.getElementById('btn-labels');
@@ -730,29 +854,46 @@
             if (labelsVisible) {
                 addLabels();
             } else {
-                viewer.removeAllLabels();
+                removeLabels();
             }
-            viewer.render();
         }
         
         function addLabels() {
-            if (!viewer || !atomDataList.length) return;
+            if (!structureComponent || !atomDataList.length) return;
             
-            for (var i = 0; i < atomDataList.length; i++) {
-                var atom = atomDataList[i];
-                
-                viewer.addLabel((i + 1).toString(), {
-                    position: atom,
-                    backgroundColor: 'rgba(255,255,255,0.9)',
-                    backgroundOpacity: 0.95,
-                    fontColor: 'black',
-                    fontSize: 14,
-                    fontWeight: 'bold',
-                    borderColor: '#00d4ff',
-                    borderThickness: 1,
-                    radius: 1.0,
-                    inFront: true
-                });
+            // Eliminar labels anteriores si existen
+            if (labelRepresentation) {
+                structureComponent.removeRepresentation(labelRepresentation);
+            }
+            
+            // Crear array de labels
+            var labelText = [];
+            var labelPosition = [];
+            
+            atomDataList.forEach(function(atom) {
+                labelText.push(atom.atomNumber.toString());
+                labelPosition.push([atom.x, atom.y, atom.z]);
+            });
+            
+            labelRepresentation = structureComponent.addRepresentation('label', {
+                labelType: 'text',
+                labelText: labelText,
+                position: labelPosition,
+                color: 'white',
+                backgroundColor: 'black',
+                backgroundOpacity: 0.8,
+                borderColor: '#00d4ff',
+                borderWidth: 0.5,
+                radiusSize: 1.5,
+                showBackground: true,
+                zOffset: 2
+            });
+        }
+        
+        function removeLabels() {
+            if (labelRepresentation) {
+                structureComponent.removeRepresentation(labelRepresentation);
+                labelRepresentation = null;
             }
         }
         
