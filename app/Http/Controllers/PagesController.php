@@ -101,7 +101,7 @@ class PagesController extends Controller
                 foreach ($data['resultList']['result'] as $pub) {
                     // Limpiar título: decodificar entidades HTML y quitar etiquetas
                     $rawTitle = trim($pub['title'] ?? '');
-                    $title    = html_entity_decode(strip_tags($rawTitle), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+                    $title    = strip_tags(html_entity_decode($rawTitle, ENT_QUOTES | ENT_HTML5, 'UTF-8'));
                     $title    = trim(rtrim($title, '.')) . '.'; // normalizar punto final
 
                     $pmid  = $pub['pmid']   ?? '';
