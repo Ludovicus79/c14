@@ -48,13 +48,12 @@ Route::get('conditions', [PagesController::class, 'conditions']);
 Route::get('acknowledgment', [PagesController::class, 'acknow']);
 Route::get('help', [PagesController::class, 'help']);
 Route::get('contributors', [PagesController::class, 'contributors']);
-Route::get('about', [PagesController::class, 'about']);
-Route::get('contact', [PagesController::class, 'contact']);
+Route::get('about',       [PagesController::class, 'about']);
+Route::get('contact',     [PagesController::class, 'contact']);
+Route::get('rss-feed',    [PagesController::class, 'rssFeed']);
 Route::get('normalizedb', [AdminController::class, 'normalizedb']);
 
 Route::middleware('auth')->group(function () {
-    Route::get('search/byName', [ByNameController::class, 'get']);
-    Route::post('search/byName', [ByNameController::class, 'post']);
     Route::post('history', [HistoryController::class, 'post']);
     Route::get('results/{history}', [ResultsController::class, 'get'])->name('mol.results');
     Route::get('results/{history}/selected', [CompareResultsController::class, 'get'])->name('mol.Compare');

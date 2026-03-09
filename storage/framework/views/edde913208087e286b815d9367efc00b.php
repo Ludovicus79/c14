@@ -3,7 +3,7 @@
 <style>
     :root {
         --wine:      #9b1b1b;
-        --dark-wine: #7e0c0c;
+        --dark-wine: #9d1111;
         --red-light: #c0392b;
         --cream:     #faf8f4;
         --sand:      #f2ede4;
@@ -35,7 +35,7 @@
         top: 0;
         width: 100%;
         z-index: 997;
-        border-bottom: 1px solid rgba(124, 4, 4, 0.65);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .top-nav-inner {
@@ -125,6 +125,117 @@
         transition: transform 0.2s;
     }
     .lang-toggle-btn.open .chevron { transform: rotate(180deg); }
+
+    /* ══════════════════════════════════════
+       AUTH BAR — barra superior login
+    ══════════════════════════════════════ */
+    .auth-bar {
+        background: #831212;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        padding: 5px 32px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+        font-family: 'Source Sans 3', sans-serif;
+        font-size: 0.82rem;
+    }
+    .auth-bar-user {
+        color: rgba(255,255,255,0.65);
+        font-size: 0.82rem;
+    }
+    .auth-bar-user strong {
+        color: rgba(255,255,255,0.9);
+    }
+    .auth-bar-link {
+        display: inline-flex;
+        align-items: center;
+        padding: 3px 14px;
+        border-radius: 2px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        text-decoration: none !important;
+        transition: all 0.15s;
+        white-space: nowrap;
+    }
+    .auth-bar-link.login {
+        color: rgba(255,255,255,0.85) !important;
+        border: 1px solid rgba(255,255,255,0.25);
+    }
+    .auth-bar-link.login:hover {
+        background: rgba(255,255,255,0.12);
+        color: #fff !important;
+    }
+    .auth-bar-link.register {
+        background: var(--wine);
+        color: #fff !important;
+        border: 1px solid transparent;
+    }
+    .auth-bar-link.register:hover {
+        background: var(--red-light);
+    }
+    .auth-bar-link.logout {
+        color: rgba(255,255,255,0.6) !important;
+        border: 1px solid rgba(255,255,255,0.15);
+    }
+    .auth-bar-link.logout:hover {
+        background: rgba(255,255,255,0.08);
+        color: rgba(255,255,255,0.9) !important;
+    }
+    .auth-bar-sep {
+        width: 1px;
+        height: 12px;
+        background: rgba(255,255,255,0.15);
+    }
+
+    /* ══════════════════════════════════════
+       RSS PUBLICACIONES
+    ══════════════════════════════════════ */
+    .rss-loading {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        padding: 12px 0;
+    }
+    .rss-spinner {
+        width: 16px; height: 16px;
+        border: 2px solid var(--stone);
+        border-top-color: var(--wine);
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+        flex-shrink: 0;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .rss-error {
+        color: var(--muted);
+        font-size: 0.85rem;
+        padding: 8px 0;
+        font-style: italic;
+    }
+    .rss-source {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 0.72rem;
+        font-family: 'Roboto Mono', monospace;
+        color: var(--muted);
+        margin-bottom: 14px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+    .rss-dot {
+        width: 7px; height: 7px;
+        background: #f60;
+        border-radius: 50%;
+        animation: pulse-rss 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse-rss {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50%       { opacity: 0.4; transform: scale(0.7); }
+    }
 
     /* ══════════════════════════════════════
        PANEL LATERAL DE IDIOMAS
@@ -781,6 +892,30 @@
 
 <?php $__env->startSection('mainContainer'); ?>
 
+<!-- ══ BARRA AUTH SUPERIOR ══ -->
+<div class="auth-bar">
+    <?php if(auth()->guard()->check()): ?>
+        <span class="auth-bar-user"><?php echo e(trans('applicationResource.user.user')); ?>, <strong><?php echo e(Auth::user()->name); ?></strong></span>
+        <div class="auth-bar-sep"></div>
+        <?php if(Auth::user()->role === 'admin' || Auth::user()->isAdmin ?? false): ?>
+            <a href="<?php echo e(url('admin')); ?>" class="auth-bar-link login"><?php echo e(trans('applicationResource.menu.admin')); ?></a>
+            <div class="auth-bar-sep"></div>
+        <?php endif; ?>
+        <a href="<?php echo e(url('historial')); ?>" class="auth-bar-link login"><?php echo e(trans('applicationResource.menu.historial')); ?></a>
+        <div class="auth-bar-sep"></div>
+        <a href="<?php echo e(url('logout')); ?>" class="auth-bar-link logout"
+           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            <?php echo e(trans('applicationResource.menu.logout')); ?>
+
+        </a>
+        <form id="logout-form" action="<?php echo e(url('logout')); ?>" method="POST" style="display:none;"><?php echo e(csrf_field()); ?></form>
+    <?php else: ?>
+        <a href="<?php echo e(url('login')); ?>" class="auth-bar-link login"><?php echo e(trans('applicationResource.menu.sesion')); ?></a>
+        <div class="auth-bar-sep"></div>
+        <a href="<?php echo e(url('register')); ?>" class="auth-bar-link register"><?php echo e(trans('applicationResource.menu.signUp')); ?></a>
+    <?php endif; ?>
+</div>
+
 <!-- ══ BARRA NAVEGACIÓN SUPERIOR ══ -->
 <nav class="top-nav">
     <div class="top-nav-inner">
@@ -801,7 +936,7 @@
             <a href="<?php echo e(url('search/byCarbonType')); ?>" class="top-nav-link" data-i18n-nav="nav_carbon">Tipo de Carbono</a>
             <div class="top-nav-sep"></div>
             <a href="<?php echo e(url('about')); ?>" class="top-nav-link" data-i18n-nav="nav_about">Acerca de</a>
-            
+        
         </div>
 
         <!-- Botón idioma -->
@@ -882,11 +1017,11 @@
 
     <div class="hero-stats">
         <div class="hero-stat">
-            <strong>+8000</strong>
+            <strong>+30.000</strong>
             <span>Compuestos</span>
         </div>
         <div class="hero-stat">
-            <strong>¹³C</strong>
+            <strong>C¹³</strong>
             <span>NMR Data</span>
         </div>
         <div class="hero-stat">
@@ -903,7 +1038,7 @@
             <p class="hero-label">Dpto. Ciencias Farmacéuticas · USAL</p>
         </div>
         <h1 class="hero-title">
-            Natural Products C<sup>13</sup> NMR Database
+            Natural Products <br>C<sup>13</sup> NMR Database
         </h1>
         <p class="hero-subtitle" data-i18n="subtitle">
             Esta aplicación proporciona diferentes herramientas de búsqueda para determinar la estructura de un compuesto de productos naturales
@@ -980,30 +1115,59 @@
 
         <div>
             <p class="section-eyebrow">Investigación</p>
-            <h2 class="section-title" style="margin-bottom:40px;" data-i18n="recent_pubs">Publicaciones Recientes</h2>
-            <div class="pub-list">
-                <div class="pub-item" onclick="openPreview('https://scholar.google.es/citations?view_op=view_citation&hl=es&user=9mWuiVoAAAAJ&sortby=pubdate&citation_for_view=9mWuiVoAAAAJ:O0nohqN1r9EC','Isolation and Characterization of Biopesticide Terpenoids from Dittrichia viscosa (L.) Roots')">
-                    <span class="pub-year">2026</span>
-                    <span class="pub-title">Isolation and Characterization of Biopesticide Terpenoids from Dittrichia viscosa (L.) Roots</span>
-                </div>
-                <div class="pub-item" onclick="openPreview('https://scholar.google.es/citations?view_op=view_citation&hl=es&user=9mWuiVoAAAAJ&sortby=pubdate&citation_for_view=9mWuiVoAAAAJ:-95Q15plzcUC','Structure Revision of Pyranoxanthones via DFT-Assisted 13C NMR Analysis and NAPROC-13 Platform')">
-                    <span class="pub-year">2025</span>
-                    <span class="pub-title">Structure Revision of Pyranoxanthones via DFT-Assisted ¹³C NMR Analysis and NAPROC-13 Platform</span>
-                </div>
-                <div class="pub-item" onclick="openPreview('https://scholar.google.es/citations?view_op=view_citation&hl=es&user=9mWuiVoAAAAJ&sortby=pubdate&citation_for_view=9mWuiVoAAAAJ:kWvqk_afx_IC','Antiparasitic activity of Eryngium bourgatii Gouan')">
-                    <span class="pub-year">2025</span>
-                    <span class="pub-title">Antiparasitic activity of Eryngium bourgatii Gouan: Fractionation and isolation of constituents from roots and aerial parts</span>
-                </div>
-                <div class="pub-item" onclick="openPreview('https://scholar.google.es/citations?view_op=view_citation&hl=es&user=9mWuiVoAAAAJ&sortby=pubdate&citation_for_view=9mWuiVoAAAAJ:kWvqk_afx_IC','Chemoinformatic Characterization of the NAPROC-13 Database')">
-                    <span class="pub-year">2024</span>
-                    <span class="pub-title">Chemoinformatic Characterization of the NAPROC-13 Database and Its Application for the Dereplication of Natural Products</span>
-                </div>
-                <div class="pub-item" onclick="openPreview('https://scholar.google.es/citations?view_op=view_citation&hl=es&user=9mWuiVoAAAAJ&sortby=pubdate&citation_for_view=9mWuiVoAAAAJ:U_HPUtbDl20C','Design and Diversity analysis of chemical libraries in drug discovery')">
-                    <span class="pub-year">2024</span>
-                    <span class="pub-title">Design and Diversity analysis of chemical libraries in drug discovery</span>
+            <h2 class="section-title" style="margin-bottom:20px;" data-i18n="recent_pubs">Publicaciones Recientes</h2>
+
+            <div class="rss-source">
+                <span class="rss-dot"></span>
+                RSS en vivo &middot; PubMed
+            </div>
+
+            <div class="pub-list" id="rss-pub-list">
+                <div class="rss-loading" id="rss-loading-indicator">
+                    <div class="rss-spinner"></div>
+                    <span>Cargando publicaciones&hellip;</span>
                 </div>
             </div>
-            <a href="https://scholar.google.es/citations?user=9mWuiVoAAAAJ&hl=es&oi=ao" target="_blank" class="pub-scholar" data-i18n="view_profile">
+
+            <script>
+            (function() {
+                var container  = document.getElementById('rss-pub-list');
+                var scholarUrl = 'https://scholar.google.es/citations?user=9mWuiVoAAAAJ&hl=es&sortby=pubdate';
+
+                fetch('/rss-feed')
+                    .then(function(r) {
+                        if (!r.ok) throw new Error('HTTP ' + r.status);
+                        return r.json();
+                    })
+                    .then(function(data) {
+                        if (data.error || !data.items || data.items.length === 0) {
+                            container.innerHTML =
+                                '<p class="rss-error">No se pudieron cargar las publicaciones. ' +
+                                '<a href="' + scholarUrl + '" target="_blank" style="color:var(--wine)">Ver en Google Scholar &rarr;</a></p>';
+                            return;
+                        }
+                        var html = '';
+                        data.items.forEach(function(item) {
+                            var safeLink  = (item.link || '#').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+                            var safeTitle = (item.title || '')
+                                .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+                            html += '<div class="pub-item" onclick="window.open(\'' + safeLink + '\',\'_blank\')">';
+                            if (item.year) html += '<span class="pub-year">' + item.year + '</span>';
+                            html += '<span class="pub-title">' + safeTitle + '</span>';
+                            html += '</div>';
+                        });
+                        container.innerHTML = html;
+                    })
+                    .catch(function() {
+                        container.innerHTML =
+                            '<p class="rss-error">No se pudo conectar. ' +
+                            '<a href="' + scholarUrl + '" target="_blank" style="color:var(--wine)">Ver en Google Scholar &rarr;</a></p>';
+                    });
+            })();
+            </script>
+
+            <a href="https://scholar.google.es/citations?user=9mWuiVoAAAAJ&hl=es&sortby=pubdate"
+               target="_blank" class="pub-scholar" data-i18n="view_profile">
                 Ver perfil en Google Scholar
             </a>
         </div>
@@ -1013,11 +1177,11 @@
                 <div class="info-box-title">NAPROC-13</div>
                 <div class="stat-grid">
                     <div class="stat-item">
-                        <span class="stat-num">+8000</span>
+                        <span class="stat-num">+30.000</span>
                         <span class="stat-label">Compuestos</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-num">¹³C</span>
+                        <span class="stat-num">C¹³</span>
                         <span class="stat-label">RMN Data</span>
                     </div>
                     <div class="stat-item">
@@ -1025,7 +1189,7 @@
                         <span class="stat-label">Búsquedas</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-num">30+</span>
+                        <span class="stat-num">+20</span>
                         <span class="stat-label">Años</span>
                     </div>
                 </div>
