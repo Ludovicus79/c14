@@ -390,7 +390,7 @@
         max-width: 1200px;
         width: 100%;
         margin: 0 auto;
-        padding: 0 56px 76px 56px;
+        padding: 0 80px 76px 80px;
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -623,7 +623,8 @@
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        margin-top: 14px;
+        margin-top: auto;
+        padding-top: 14px;
         font-family: 'Source Sans 3', sans-serif;
         font-size: 1rem;
         font-weight: 700;
@@ -1032,10 +1033,11 @@
 
     <div class="hero-content">
         <div class="hero-label-row">
-            <img src="<?php echo e(asset('images/logo_usal.png')); ?>"
-                 onerror="this.src='<?php echo e(asset('images/usal.png')); ?>'; this.onerror=function(){this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Escudo_de_la_Universidad_de_Salamanca.svg/100px-Escudo_de_la_Universidad_de_Salamanca.svg.png'; this.onerror=function(){this.style.display='none';}};"
-                 alt="USAL" class="hero-usal-shield">
-            <p class="hero-label">Dpto. Ciencias Farmacéuticas · USAL</p>
+            <img src="<?php echo e(asset('images/Logo_Usal_Hor_Eng_Blanco_2011.png')); ?>"
+                 alt="Universidad de Salamanca"
+                 style="height:88px; width:auto; opacity:0.90; filter:brightness(0) invert(1);">
+            <span style="width:1px; height:22px; background:rgba(255,255,255,0.25); display:inline-block; margin:0 8px;"></span>
+            <p class="hero-label">Dpto. Ciencias Farmacéuticas</p>
         </div>
         <h1 class="hero-title">
             Natural Products <br>C<sup>13</sup> NMR Database
@@ -1063,8 +1065,9 @@
 
     <div class="cards-grid">
         <a href="<?php echo e(url('search/byName')); ?>" class="search-card">
-            <div class="card-img">
-                <img src="<?php echo e(asset('images/imagen1.png')); ?>" alt="By Name">
+            <div class="card-img" style="background: #ffffff;">
+                <img src="<?php echo e(asset('images/imagen1.png')); ?>" alt="By Name"
+                     style="width:100%; height:100%; object-fit:contain; display:block; padding:16px;">
             </div>
             <div class="card-body">
                 <span class="card-num">01</span>
