@@ -178,7 +178,7 @@
         background: var(--red-light);
     }
     .auth-bar-link.logout {
-        color: rgba(255,255,255,0.6) !important;
+        color: rgba(255, 255, 255, 0.96) !important;
         border: 1px solid rgba(255,255,255,0.15);
     }
     .auth-bar-link.logout:hover {
@@ -405,7 +405,7 @@
         font-size: 1.1rem;
         letter-spacing: 3px;
         text-transform: uppercase;
-        color: rgba(255,255,255,0.65);
+        color: rgba(255, 255, 255, 0.94);
     }
     .hero-label::before {
         content: '';
