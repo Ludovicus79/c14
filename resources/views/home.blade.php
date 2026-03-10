@@ -178,7 +178,7 @@
         background: var(--red-light);
     }
     .auth-bar-link.logout {
-        color: rgba(255, 255, 255, 0.96) !important;
+        color: rgba(255,255,255,0.6) !important;
         border: 1px solid rgba(255,255,255,0.15);
     }
     .auth-bar-link.logout:hover {
@@ -405,7 +405,7 @@
         font-size: 1.1rem;
         letter-spacing: 3px;
         text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.94);
+        color: rgba(255, 255, 255, 0.97);
     }
     .hero-label::before {
         content: '';
@@ -912,9 +912,9 @@
         </a>
         <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display:none;">{{ csrf_field() }}</form>
     @else
-        <a href="{{ url('login') }}" class="auth-bar-link login">{{ trans('applicationResource.menu.sesion') }}</a>
+        <a href="{{ url('login') }}" class="auth-bar-link login" data-i18n-nav="menu_login">{{ trans('applicationResource.menu.sesion') }}</a>
         <div class="auth-bar-sep"></div>
-        <a href="{{ url('register') }}" class="auth-bar-link register">{{ trans('applicationResource.menu.signUp') }}</a>
+        <a href="{{ url('register') }}" class="auth-bar-link register" data-i18n-nav="menu_register">{{ trans('applicationResource.menu.signUp') }}</a>
     @endauth
 </div>
 
@@ -933,7 +933,7 @@
             <div class="top-nav-sep"></div>
             <a href="{{ url('search/bySubstructure') }}" class="top-nav-link" data-i18n-nav="nav_sub">Subestructura</a>
             <div class="top-nav-sep"></div>
-            <a href="{{ url('search/byShiftNoPosition') }}" class="top-nav-link" data-i18n-nav="nav_shift">Chemical Shift</a>
+            <a href="{{ url('search/byShiftNoPosition') }}" class="top-nav-link" data-i18n-nav="nav_shift">Desplazamiento</a>
             <div class="top-nav-sep"></div>
             <a href="{{ url('search/byCarbonType') }}" class="top-nav-link" data-i18n-nav="nav_carbon">Tipo de Carbono</a>
             <div class="top-nav-sep"></div>
@@ -1094,7 +1094,7 @@
             </div>
             <div class="card-body">
                 <span class="card-num">03</span>
-                <h3 class="card-title" data-i18n="chemical_shift">Chemical Shift</h3>
+                <h3 class="card-title" data-i18n="Desplazamiento">Desplazamiento</h3>
                 <p class="card-desc" data-i18n="chemical_shift_desc">Búsqueda basada en valores de desplazamientos de RMN ¹³C.</p>
                 <span class="card-arrow">Buscar →</span>
             </div>
@@ -1350,13 +1350,13 @@
     };
 
     const navTranslations = {
-        es: { nav_byname:"Por Nombre", nav_sub:"Subestructura", nav_shift:"Chemical Shift", nav_carbon:"Tipo de Carbono", nav_about:"Acerca de", nav_contact:"Contacto", nav_tools:"Herramientas" },
-        en: { nav_byname:"By Name", nav_sub:"Substructure", nav_shift:"Chemical Shift", nav_carbon:"Carbon Type", nav_about:"About", nav_contact:"Contact", nav_tools:"Tools" },
-        zh: { nav_byname:"按名称", nav_sub:"子结构", nav_shift:"化学位移", nav_carbon:"碳类型", nav_about:"关于", nav_contact:"联系", nav_tools:"工具" },
-        it: { nav_byname:"Per Nome", nav_sub:"Sottostruttura", nav_shift:"Chemical Shift", nav_carbon:"Tipo di Carbonio", nav_about:"Informazioni", nav_contact:"Contatto", nav_tools:"Strumenti" },
-        de: { nav_byname:"Nach Name", nav_sub:"Substruktur", nav_shift:"Chemical Shift", nav_carbon:"Kohlenstofftyp", nav_about:"Über", nav_contact:"Kontakt", nav_tools:"Werkzeuge" },
-        fr: { nav_byname:"Par Nom", nav_sub:"Sous-structure", nav_shift:"Chemical Shift", nav_carbon:"Type de Carbone", nav_about:"À propos", nav_contact:"Contact", nav_tools:"Outils" },
-        pt: { nav_byname:"Por Nome", nav_sub:"Subestrutura", nav_shift:"Chemical Shift", nav_carbon:"Tipo de Carbono", nav_about:"Sobre", nav_contact:"Contato", nav_tools:"Ferramentas" }
+        es: { nav_byname:"Por Nombre", nav_sub:"Subestructura", nav_shift:"Desplazamientos", nav_carbon:"Tipo de Carbono", nav_about:"Acerca de", nav_contact:"Contacto", nav_tools:"Herramientas", menu_login:"Iniciar sesión", menu_register:"Registrarse" },
+        en: { nav_byname:"By Name", nav_sub:"Substructure", nav_shift:"Chem. Shifts", nav_carbon:"Carbon Type", nav_about:"About", nav_contact:"Contact", nav_tools:"Tools", menu_login:"Log in", menu_register:"Sign up" },
+        zh: { nav_byname:"按名称", nav_sub:"子结构", nav_shift:"化学位移", nav_carbon:"碳类型", nav_about:"关于", nav_contact:"联系", nav_tools:"工具", menu_login:"登录", menu_register:"注册" },
+        it: { nav_byname:"Per Nome", nav_sub:"Sottostruttura", nav_shift:"Spostamenti", nav_carbon:"Tipo di Carbonio", nav_about:"Informazioni", nav_contact:"Contatto", nav_tools:"Strumenti", menu_login:"Accedi", menu_register:"Registrati" },
+        de: { nav_byname:"Nach Name", nav_sub:"Substruktur", nav_shift:"Verschiebungen", nav_carbon:"Kohlenstofftyp", nav_about:"Über", nav_contact:"Kontakt", nav_tools:"Werkzeuge", menu_login:"Anmelden", menu_register:"Registrieren" },
+        fr: { nav_byname:"Par Nom", nav_sub:"Sous-structure", nav_shift:"Déplacements", nav_carbon:"Type de Carbone", nav_about:"À propos", nav_contact:"Contact", nav_tools:"Outils", menu_login:"Connexion", menu_register:"S'inscrire" },
+        pt: { nav_byname:"Por Nome", nav_sub:"Subestrutura", nav_shift:"Deslocamentos", nav_carbon:"Tipo de Carbono", nav_about:"Sobre", nav_contact:"Contato", nav_tools:"Ferramentas", menu_login:"Entrar", menu_register:"Registrar" }
     };
 
     const langMeta = {
@@ -1369,11 +1369,21 @@
         pt: { flag: 'pt', label: 'PT' }
     };
 
-    let currentLang = localStorage.getItem('naproc-lang') || 'es';
+    // Sincronizar con el locale de Laravel (establecido en otras páginas)
+    const laravelLocale = '{{ app()->getLocale() }}';
+    const supportedLangs = Object.keys(langMeta);
+    const storedLang = localStorage.getItem('naproc-lang');
+
+    // Prioridad: locale Laravel > localStorage > 'es'
+    let currentLang = (supportedLangs.includes(laravelLocale) ? laravelLocale : null)
+                   || (supportedLangs.includes(storedLang) ? storedLang : null)
+                   || 'es';
 
     function changeLanguage(lang) {
         currentLang = lang;
         localStorage.setItem('naproc-lang', lang);
+        // Sincronizar locale Laravel para que otras páginas usen el mismo idioma
+        fetch('/locale/' + lang).catch(() => {});
         // Textos principales
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
