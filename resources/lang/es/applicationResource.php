@@ -234,4 +234,104 @@ return [
     'ayuda.editor.p19' => 'ÁTOMOS:',
     'ayuda.editor.p20' => 'Estos botones representan los diferentes átomos que se pueden elegir para crear la subestructura.',
     'ayuda.editor.p21' => 'Son los tipos de átomos más comunes en la química orgánica. Si necesitas alguno que no esté en la lista y conoces su código SMILES, puedes crearlo pulsando el control marcado con una X e introduciendo su código SMILES en el cuadro de diálogo que aparecerá.',
+
+    # -- Resultados --
+    'result.results'      => 'Resultados',
+    'result.compounds'    => 'Compuestos',
+    'result.numeration'   => 'Con numeración',
+    'result.noNumeration' => 'Sin numeración',
+
+    # -- Propiedades / Molécula --
+    'properties.properties' => 'Propiedades',
+    'molecule.spectrum'     => 'Espectro',
+
+    # -- Formulario (claves faltantes) --
+    'form.compare'              => 'Comparar seleccionados',
+    'form.busquedas.subestructura' => 'Búsqueda por subestructura',
+    'form.estereoquimica'       => 'Estereoquímica',
+    'errors.requeridos'         => 'Debe rellenar al menos un campo',
+
+    # -- Historial (claves faltantes) --
+    'historial.busquedaRefinada' => 'Ver seleccionados',
+
+    # -- Criterios de búsqueda (usados en combineCriteria) --
+    'criteria.family'          => 'Familia',
+    'criteria.subFamily'       => 'Tipo',
+    'criteria.subSubFamily'    => 'Grupo',
+    'criteria.molecularFormula'=> 'Fórmula molecular',
+    'criteria.minWeight'       => 'Peso mínimo',
+    'criteria.maxWeight'       => 'Peso máximo',
+    'criteria.triName'         => 'Nombre',
+    'criteria.semiName'        => 'Nombre semisistémático',
+    'criteria.authors'         => 'Autores',
+    'criteria.magazine'        => 'Revista',
+    'criteria.year'            => 'Año',
+    'criteria.volume'          => 'Volumen',
+    'criteria.page'            => 'Páginas',
+    'criteria.smileCode'       => 'SMILES',
+    'criteria.minMatches'      => 'Mínimo coincidencias',
+
+    # -- Datos de molécula --
+    'molData.name'        => 'Nombre',
+    'molData.family'      => 'Familia',
+    'molData.group'       => 'Grupo',
+    'molData.type'        => 'Tipo',
+    'molData.solvent'     => 'Solvente',
+    'molData.formula'     => 'Fórmula molecular',
+    'molData.weight'      => 'Peso molecular',
+    'molData.bibliography'=> 'Bibliografía',
+    'molData.rmn'         => 'Datos de RMN ¹³C',
+    'molData.comments'    => 'Comentarios',
+
+    # -- Propiedades --
+    'properties.types'    => 'Tipo',
+
+    # -- Botones --
+    'button.back'         => 'Volver',
+    'button.edit'         => 'Editar',
+
+    # -- Admin navbar --
+    'admin.logs'          => 'Logs',
+    'admin.mol'           => 'Moléculas',
+    'admin.users'         => 'Usuarios',
+    'admin.config'        => 'Configuración',
+
+    # -- Datos de molécula (edición) --
+    'molData.state'       => 'Estado',
+    'molData.ssname'      => 'Nombre semisistémático',
+
+    # -- Datos de carbono (tabla edición) --
+    'carbonData.numeration'  => 'Numeración',
+    'carbonData.numeration2' => 'Num. alternativa',
+    'carbonData.shift'       => 'δ (ppm)',
+    'carbonData.type'        => 'Tipo',
+
+    # -- Admin edición adicional --
+    'molData.jmeNum' => 'Coordenadas JME',
+    'molData.smilesNum' => 'SMILES con numeración',
+    'biblioData.authors' => 'Autores',
+    'biblioData.magazine' => 'Revista',
+    'biblioData.year' => 'Año',
+    'biblioData.volume' => 'Volumen',
+    'biblioData.page' => 'Páginas',
+    'biblioData.doi' => 'DOI',
+    'biblioData.isbn' => 'ISBN',
+    'molData.author' => 'Autor de la entrada',
+    'authorData.author' => 'Nombre',
+    'authorData.email' => 'Correo electrónico',
+    'authorData.country' => 'País',
+    'authorData.org' => 'Organización',
+    'molData.priComments' => 'Comentarios privados',
+    'button.save' => 'Guardar',
+
+    # -- Botones y menú admin adicional --
+    'admin.new' => 'Nueva molécula',
+    'admin.edit' => 'Editar',
+    'admin.excel' => 'Exportar Excel',
+    'admin.confirm' => 'Confirmadas',
+    'admin.lastMol' => 'Últimas moléculas',
+    'button.view' => 'Ver',
+    'button.download' => 'Descargar',
+    'button.deleteAll' => 'Eliminar todo',
+    'button.downloadAll' => 'Descargar todo',
 ];

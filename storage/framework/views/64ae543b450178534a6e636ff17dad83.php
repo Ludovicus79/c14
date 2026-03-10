@@ -301,5 +301,4 @@
         </div>
     </section>
 <?php $__env->stopSection(); ?>
-
 <?php echo $__env->make('layouts.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH /Users/usuario/Downloads/C14-CORREGIDO/C14-main-2/resources/views/search/byName.blade.php ENDPATH**/ ?>

@@ -54,18 +54,20 @@ Route::get('rss-feed',    [PagesController::class, 'rssFeed']);
 Route::get('normalizedb', [AdminController::class, 'normalizedb']);
 
 Route::middleware('auth')->group(function () {
-    Route::post('history', [HistoryController::class, 'post']);
+    Route::post('historial', [HistoryController::class, 'post']);
     Route::get('results/{history}', [ResultsController::class, 'get'])->name('mol.results');
     Route::get('results/{history}/selected', [CompareResultsController::class, 'get'])->name('mol.Compare');
     Route::get('properties/{id}', [PropertiesController::class, 'get'])->name('mol.properties');
     Route::get('spectrum/{id}', [SpectrumController::class, 'get'])->name('mol.spectrum');
+    Route::get('search/byName', [ByNameController::class, 'get']);
+    Route::post('search/byName', [ByNameController::class, 'post']);
     Route::get('search/bySubstructure', [BySubstructureController::class, 'get']);
     Route::post('search/bySubstructure', [BySubstructureController::class, 'post']);
     Route::get('search/byShiftNoPosition', [ByShiftNoPositionController::class, 'get']);
     Route::post('search/byShiftNoPosition', [ByShiftNoPositionController::class, 'post']);
     Route::get('search/byCarbonType', [ByCarbonTypeController::class, 'get']);
     Route::post('search/byCarbonType', [ByCarbonTypeController::class, 'post']);
-    Route::get('history', [HistoryController::class, 'get']);
+    Route::get('historial', [HistoryController::class, 'get']);
     Route::get('analitica/{history}', [AnaliticaController::class, 'get'])->name('mol.analitica');
     Route::get('/logout', [LoginController::class, 'logout']);
     Route::get('spectrum/{id}/molecule3d', [SpectrumController::class, 'molecule3d']);

@@ -451,7 +451,7 @@
     </div>
     
     <div class="main-container">
-        <div class="viewer-panel">
+        <div class="viewer-panel" id="viewer-panel-inner">
             <div id="viewport"></div>
             
             <!-- Loading -->
@@ -595,21 +595,66 @@
             }
         }
         
-        function loadFromSMILES(smiles) {
-            updateStatus('loading', 'Fetching...');
-            
-            fetch('https://cactus.nci.nih.gov/chemical/structure/' + encodeURIComponent(smiles) + '/sdf')
-                .then(response => {
-                    if (!response.ok) throw new Error('Failed to fetch');
-                    return response.text();
-                })
-                .then(sdf => {
-                    loadStructure(sdf, 'NCI Cactus');
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    showError('Failed to load 3D structure', 'Could not generate structure from SMILES');
-                });
+        // Servicios para generar 3D desde SMILES, en orden de prioridad
+        var smilesServices = [
+            {
+                name: 'NCI Cactus',
+                url: smiles => 'https://cactus.nci.nih.gov/chemical/structure/' + encodeURIComponent(smiles) + '/sdf'
+            },
+            {
+                name: 'Cactus (InChI fallback)',
+                url: smiles => 'https://cactus.nci.nih.gov/chemical/structure/' + encodeURIComponent(smiles) + '/sdf?operator=inchi'
+            },
+            {
+                name: 'PubChem',
+                // PubChem: primero obtener CID, luego descargar SDF 3D
+                url: null,
+                fetch: async function(smiles) {
+                    const cidResp = await fetch(
+                        'https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/smiles/' +
+                        encodeURIComponent(smiles) + '/cids/JSON'
+                    );
+                    if (!cidResp.ok) throw new Error('No CID');
+                    const cidData = await cidResp.json();
+                    const cid = cidData.IdentifierList?.CID?.[0];
+                    if (!cid) throw new Error('CID not found');
+                    const sdfResp = await fetch(
+                        'https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/CID/' + cid + '/SDF?record_type=3d'
+                    );
+                    if (!sdfResp.ok) throw new Error('No 3D SDF');
+                    return await sdfResp.text();
+                }
+            }
+        ];
+
+        async function loadFromSMILES(smiles) {
+            updateStatus('loading', 'Fetching 3D structure...');
+
+            for (var i = 0; i < smilesServices.length; i++) {
+                var service = smilesServices[i];
+                try {
+                    var sdf;
+                    if (service.fetch) {
+                        sdf = await service.fetch(smiles);
+                    } else {
+                        var resp = await fetch(service.url(smiles));
+                        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                        sdf = await resp.text();
+                    }
+                    if (sdf && sdf.trim().length > 10 && (sdf.indexOf('M  END') !== -1 || sdf.indexOf('$$$$') !== -1) && sdf.indexOf('<html') === -1) {
+                        console.log('3D loaded from ' + service.name);
+                        loadStructure(sdf, service.name);
+                        return;
+                    }
+                    throw new Error('Empty SDF');
+                } catch(e) {
+                    console.warn(service.name + ' failed:', e.message);
+                }
+            }
+
+            // Todos los servicios fallaron — mostrar vista 2D con JSME como fallback
+            console.warn('All 3D services failed, showing 2D fallback');
+            show2DFallback();
         }
         
         function loadStructure(sdfData, source) {
@@ -897,6 +942,28 @@
             }
         }
         
+        function show2DFallback() {
+            hideLoading();
+            updateStatus('error', '2D only');
+            // Ocultar visor NGL y mostrar JSME 2D
+            document.getElementById('viewport').style.display = 'none';
+            document.querySelector('.controls-bar').style.display = 'none';
+
+            var jmeData = "<?php echo e($molecule->jmeDisplacement ?? $molecule->smiles ?? ''); ?>";
+            var fallbackDiv = document.createElement('div');
+            fallbackDiv.style.cssText = 'width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#111;padding:20px;';
+            fallbackDiv.innerHTML =
+                '<p style="color:#aaa;margin-bottom:12px;font-size:13px;">⚠️ 3D not available — showing 2D structure</p>' +
+                '<div id="jsme_fallback" style="width:500px;height:400px;"></div>';
+            document.getElementById('viewer-panel-inner').appendChild(fallbackDiv);
+
+            // Cargar JSME con la molécula en 2D
+            if (typeof JSApplet !== 'undefined' && jmeData) {
+                var app = new JSApplet.JSME("jsme_fallback", "500px", "400px", {"options":"depict"});
+                setTimeout(function(){ app.readMolecule(jmeData); }, 600);
+            }
+        }
+
         function updateStatus(type, message) {
             var badge = document.getElementById('status-badge');
             badge.className = 'status-badge ' + type;
