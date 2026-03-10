@@ -1,0 +1,437 @@
+/* -- Resetea propiedades iniciales de los navegadores -- */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+ h4 {
+    font-size: 21px;
+    color: #333;
+    text-shadow: #101010, 1px 1px 0px #A52A2A;
+  }
+
+html, body {
+    height: 100%;
+}
+
+span a {
+    margin-right: 20px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #CB0223;
+    text-decoration: none;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+footer.container-fluid {
+    position: relative;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+footer .row {
+    width: 100%;
+}
+
+.custom-col {
+    padding: 4em;
+}
+
+.wrapper {
+    min-height: 60%;
+}
+
+.combinations input {
+    margin-right: 3px;
+}
+
+.combinations label {
+    margin-right: 10px;
+}
+
+/* -- Clases generales -- */
+
+.text-white {
+    color: white;
+}
+
+.double-spaced {
+    margin-top: 0.5em;
+}
+
+.btn-xs {
+    height: 20px;
+    width: 20px;
+}
+
+.btn-md {
+    min-width: 90px;
+}
+
+/* -- Estilo header -- */
+
+#barraSup {
+    background-color: #444444;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+#barraSup a {
+    color: white;
+    font-weight: bold;
+}
+
+#barraSup ul {
+    margin: 0;
+}
+
+#barraSup .logo {
+    height: 1em;
+    width: 1.3em;
+}
+
+#barraSup .logo.inactive {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+#barraSup .logo.inactive:hover {
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+}
+
+#resultadosnumdesp a {
+    margin-right: 10px;
+}
+/* -- Contenedor principal -*/
+
+.main-container {
+    padding-bottom: 1em;
+}
+
+/* -- Footer -- */
+footer {
+    background-color: #444444;
+    padding-top: 2em;
+}
+
+/* -- Errores -- */
+#error {
+    color: #cb0223;
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+
+/* -- Ayuda -- */
+
+.flip {
+    cursor: pointer;
+    line-height: 30px;
+    font-size: 16px;
+    padding: 5px;
+    text-align: center;
+    background: #555;
+    border: solid 1px #666;
+    color: #ffffff;
+    border-radius: 3px;
+}
+
+.nav-tabs > li > a {
+    background-color: #FFF;
+    border-color: #808080; /*50%*/
+    color: #808080;
+}
+
+/* active tab color */
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #fff;
+    background-color: #cb0223;
+    border: 1px solid #cb0223;
+}
+
+/* hover tab color */
+.nav-tabs > li > a:hover {
+    border-color: #808080;
+    background-color: rgba(203, 2, 35, 0.24);
+}
+
+.nav-tabs > li {
+    float: none;
+    display: inline-block;
+    display: inline; /* ie7 fix */
+    zoom: 1; /* hasLayout ie7 trigger */
+}
+
+/* center tabs */
+.nav-tabs {
+    text-align: center;
+    border-bottom: 2px solid #808080;
+}
+
+/* -- JME Visualización -- */
+
+.jme {
+    width: 310px;
+    height: 310px;
+    margin-left: auto;
+}
+
+.jmeProp {
+    width: 350px;
+    height: 350px;
+    margin: auto;
+}
+
+@media (min-width: 460px) and (orientation: landscape) {
+    .jmeProp {
+        width: 350px;
+        height: 350px;
+    }
+}
+
+@media (max-width: 460px) {
+    .jme {
+        pointer-events: none;
+    }
+
+    .jmeProp {
+        pointer-events: none;
+    }
+}
+
+.jmeEditor {
+    width: 300px;
+    height: 300px;
+    margin: left;
+}
+
+@media (min-width: 460px) and (orientation: landscape) {
+    .jmeEditor {
+        width: 400px;
+        height: 400px;
+    }
+}
+
+/* -- Controles  -- */
+#stereoButton {
+    min-width: 0px;
+}
+
+/* -- Sobre Bootstrap --*/
+.input-sm, select.input-sm {
+    height: 25px;
+    padding: 2px;
+}
+
+/*-- Administrador/Usuarios --*/
+.square {
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.redSquare {
+    background: red;
+}
+
+.greenSquare {
+    background: green;
+}
+
+/* -- Administrador nueva/editar molécula --*/
+.delCButton {
+    padding: 0px;
+    margin: 2px;
+    height: 20px;
+    width: 20px;
+}
+
+.inp-small {
+    width: 60px;
+}
+
+.label2cifras{
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 20px;
+}
+
+.jme2{
+    margin: auto;
+}
+
+.columna{
+    width:7.33333%;
+    padding-left: 5px;
+}
+
+.columna2{
+    width: 14.7%;
+}
+
+.liCabecera{
+    margin-right: 50px;
+}
+
+/*sergio */
+#searchChemShift1,#searchChemShift3,#searchChemShift4,#searchChemShift5 {
+    width: 25%;
+     margin-left: 8.3%;
+}
+
+
+#searchChemShift2{
+    width: 25%;
+    margin-left: 3.4%;
+}
+
+/* Esto es para que aparezcan en distintas líneas lo de la búsquda (family, type, group)
+@media (min-width: 768px){
+    #searchSubstructure1,#searchSubstructure2,#searchSubstructure3{
+        width: 100%;
+        float: left;
+        margin: 2%;
+    }
+
+    #desplegableFam,#desplegableType,#desplegableGroup{
+        width: 77%;
+    }
+    .form-group div label{
+        width: 90px;
+    }
+
+
+}
+*/ 
+@media(max-width: 992px){
+    .tablaProperties{
+        width: 25%;
+        text-align: left;
+    }
+}
+
+#info {
+    font-size: 16px;
+    border: grey;
+    border-width: 2px;
+    border-style: solid;
+    width: 25px;
+    height: 25px;
+    float: left;
+    text-align: center;
+    border-radius: 100%;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    margin: 4px;
+    cursor: default;
+}
+
+#info #infotext {
+    width: 120px;
+    background-color:grey;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    font-family: initial;
+    font-size: 14px;
+    padding: 1px;
+    opacity: 0;
+    transition: opacity 0.25s;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    bottom: 0%;
+    left: 120%;
+}
+
+#info:hover #infotext {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* endsergio*/
+
+/*colores en las tolerancias*/
+
+.cp_tolerancias{
+    width: 320px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.tolerancia{
+    height: 22px;
+}
+
+.descripcion{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.diferencia0{
+    background-color: #ff9999;
+}
+
+.diferencia1{
+    background-color: #ffcc65;
+}
+
+.diferencia2{
+    background-color: #fffc99;
+}
+
+.diferencia3{
+    background-color: #65feff;
+}
+
+.diferencia4{
+    background-color: #32cdff;
+}
+
+.diferencia5{
+    background-color: #ff98fe;
+}
+
+.diferencia6{
+    background-color: #33ff33;
+}
+
+.rectangulo{
+    height: 20px;
+    width: 29px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#checkCompare{
+    width: 26px; 
+    height: 26px; 
+    border: 2px solid;
+    border-color: #cb0223; 
+    border-radius: 5px;
+    background: #cb0223
+}
+

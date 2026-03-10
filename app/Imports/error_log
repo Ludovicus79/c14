@@ -1,0 +1,164 @@
+[01-Nov-2025 18:46:02 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[02-Nov-2025 07:27:21 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[02-Nov-2025 07:39:15 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[02-Nov-2025 07:45:15 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[02-Nov-2025 07:54:40 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[02-Nov-2025 08:01:31 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[02-Nov-2025 08:17:16 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[05-Nov-2025 08:35:16 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[05-Nov-2025 10:01:57 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[06-Nov-2025 10:08:13 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[06-Nov-2025 22:22:20 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[06-Nov-2025 22:42:03 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[06-Nov-2025 22:54:19 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[06-Nov-2025 23:05:41 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[19-Nov-2025 19:08:19 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[01-Dec-2025 02:24:48 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[05-Dec-2025 03:11:53 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[05-Dec-2025 03:31:19 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[11-Dec-2025 03:55:27 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[11-Dec-2025 03:55:30 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[11-Dec-2025 07:43:02 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[14-Dec-2025 14:34:02 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[14-Dec-2025 22:12:54 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[14-Dec-2025 22:24:17 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[14-Dec-2025 22:33:40 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[14-Dec-2025 22:49:05 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[14-Dec-2025 23:00:12 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[15-Dec-2025 11:38:11 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[15-Dec-2025 16:12:19 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[16-Dec-2025 01:47:49 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[16-Dec-2025 02:50:47 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[16-Dec-2025 04:14:03 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[16-Dec-2025 10:05:58 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[16-Dec-2025 10:36:47 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[23-Dec-2025 02:13:51 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[23-Dec-2025 02:22:39 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[29-Dec-2025 05:16:55 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[16-Jan-2026 04:11:44 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[16-Jan-2026 06:21:29 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[29-Jan-2026 18:47:54 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7
+[04-Feb-2026 10:40:52 UTC] PHP Fatal error:  Uncaught Error: Interface 'Maatwebsite\Excel\Concerns\ToArray' not found in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/app/Imports/SheetToArrayImport.php on line 7

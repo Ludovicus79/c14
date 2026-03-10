@@ -1,0 +1,144 @@
+[18-Oct-2025 09:47:49 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[18-Oct-2025 13:52:17 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[02-Nov-2025 04:29:02 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[02-Nov-2025 04:59:42 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[02-Nov-2025 05:09:33 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[02-Nov-2025 05:22:40 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[02-Nov-2025 05:33:01 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[02-Nov-2025 05:44:12 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[02-Nov-2025 06:00:28 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[06-Nov-2025 19:12:25 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[06-Nov-2025 19:46:29 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[06-Nov-2025 19:58:42 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[06-Nov-2025 20:11:13 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[06-Nov-2025 20:21:13 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[17-Nov-2025 18:42:34 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[19-Nov-2025 19:55:16 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[23-Nov-2025 23:26:05 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[29-Nov-2025 22:41:27 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[05-Dec-2025 02:19:58 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[05-Dec-2025 02:37:13 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[11-Dec-2025 07:58:15 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[14-Dec-2025 20:01:22 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[14-Dec-2025 20:17:34 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[14-Dec-2025 20:27:45 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[14-Dec-2025 20:41:39 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[14-Dec-2025 21:05:42 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[22-Dec-2025 00:06:24 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[23-Dec-2025 00:45:40 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[23-Dec-2025 00:48:02 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[23-Dec-2025 03:02:00 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[03-Jan-2026 14:13:35 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[17-Jan-2026 23:31:00 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[22-Jan-2026 01:12:47 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[29-Jan-2026 15:47:08 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[30-Jan-2026 04:00:37 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10
+[03-Feb-2026 23:30:48 UTC] PHP Fatal error:  Uncaught Error: Class 'Tests\TestCase' not found in /home/materiam/c14/c14/tests/Feature/ExampleTest.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/materiam/c14/c14/tests/Feature/ExampleTest.php on line 10

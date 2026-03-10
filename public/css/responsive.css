@@ -1,0 +1,333 @@
+/* ============================================
+   RESPONSIVE FIXES - responsive.css
+   Añadir en master.blade.php DESPUÉS de nuevo.css
+   ============================================ */
+
+/* -- Evita scroll horizontal global -- */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* -- Header barra superior -- */
+#barraSup {
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+}
+
+#barraSup .col-md-3,
+#barraSup .col-md-5 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#barraSup ul.list-inline {
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+/* -- Navbar logo -- */
+nav .navbar-header img {
+    width: 10em;
+    height: auto;
+    max-height: 3em;
+}
+
+/* -- Footer -- */
+footer.container-fluid {
+    overflow: hidden;
+}
+
+footer .vcenter {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+footer img.img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+/* -- Contenedor principal -- */
+.wrapper {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* -- Tablas responsivas -- */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    max-width: 100%;
+}
+
+/* -- JME editor responsivo -- */
+.jme, .jmeProp, .jmeEditor, .jme2 {
+    max-width: 100%;
+}
+
+/* ============================================
+   PANTALLAS GRANDES (>= 1200px)
+   ============================================ */
+@media (min-width: 1200px) {
+    .container-fluid {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+/* ============================================
+   PANTALLAS MEDIANAS (992px - 1199px) - tu portátil
+   ============================================ */
+@media (max-width: 1199px) {
+    nav .navbar-header img {
+        width: 9em;
+        height: auto;
+    }
+
+    .liCabecera {
+        margin-right: 20px;
+    }
+
+    #barraSup .col-md-offset-4 {
+        margin-left: 0;
+    }
+}
+
+/* ============================================
+   TABLETS (768px - 991px)
+   ============================================ */
+@media (max-width: 991px) {
+
+    /* Header */
+    #barraSup .col-md-3,
+    #barraSup .col-md-5 {
+        text-align: center !important;
+        width: 100%;
+        float: none;
+    }
+
+    #barraSup .col-md-offset-4 {
+        margin-left: 0;
+        width: 100%;
+        float: none;
+    }
+
+    /* Navbar */
+    nav .navbar-header img {
+        width: 8em;
+        height: auto;
+    }
+
+    .liCabecera {
+        margin-right: 10px;
+    }
+
+    /* JME */
+    .jme {
+        width: 280px;
+        height: 280px;
+    }
+
+    .jmeProp {
+        width: 300px;
+        height: 300px;
+    }
+
+    .jmeEditor {
+        width: 280px;
+        height: 280px;
+    }
+
+    /* Buscadores */
+    #searchChemShift1,
+    #searchChemShift2,
+    #searchChemShift3,
+    #searchChemShift4,
+    #searchChemShift5 {
+        width: 40%;
+        margin-left: 2%;
+    }
+
+    /* Propiedades */
+    .tablaProperties {
+        width: 50%;
+    }
+
+    /* Footer */
+    footer .vcenter {
+        display: block;
+        width: 100%;
+        text-align: center;
+        float: none;
+    }
+
+    footer .col-sm-3,
+    footer .col-md-2 {
+        text-align: center;
+    }
+}
+
+/* ============================================
+   MÓVILES GRANDES (576px - 767px)
+   ============================================ */
+@media (max-width: 767px) {
+
+    /* Header compacto */
+    #barraSup {
+        padding: 4px 8px;
+    }
+
+    #barraSup ul.list-inline li {
+        display: inline-block;
+        margin: 1px;
+    }
+
+    #barraSup .logo {
+        height: 1.2em;
+        width: 1.5em;
+    }
+
+    /* Navbar mobile */
+    nav .navbar-header img {
+        width: 7em;
+        height: auto;
+    }
+
+    .navbar-default .navbar-collapse {
+        max-height: 340px;
+        overflow-y: auto;
+    }
+
+    /* Ocultar texto largo en menú si es necesario */
+    .liCabecera {
+        margin-right: 0;
+    }
+
+    /* JME más pequeño */
+    .jme {
+        width: 250px;
+        height: 250px;
+        margin: auto;
+    }
+
+    .jmeProp {
+        width: 260px;
+        height: 260px;
+        margin: auto;
+    }
+
+    .jmeEditor {
+        width: 250px;
+        height: 250px;
+    }
+
+    /* Buscadores full width */
+    #searchChemShift1,
+    #searchChemShift2,
+    #searchChemShift3,
+    #searchChemShift4,
+    #searchChemShift5 {
+        width: 80%;
+        margin-left: 5%;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    /* Columnas de resultados */
+    .columna {
+        width: 12%;
+        padding-left: 2px;
+    }
+
+    .columna2 {
+        width: 20%;
+    }
+
+    /* Propiedades */
+    .tablaProperties {
+        width: 80%;
+        text-align: left;
+    }
+
+    /* Footer apilado */
+    footer .col-xs-12 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    footer img.img-responsive {
+        max-width: 140px;
+        margin: auto;
+    }
+
+    /* Formularios */
+    .form-group label {
+        font-size: 13px;
+    }
+
+    .btn {
+        font-size: 13px;
+    }
+
+    /* Tolerancias */
+    .cp_tolerancias {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+}
+
+/* ============================================
+   MÓVILES PEQUEÑOS (< 480px)
+   ============================================ */
+@media (max-width: 480px) {
+
+    #barraSup .logo {
+        height: 1em;
+        width: 1.2em;
+    }
+
+    nav .navbar-header img {
+        width: 6em;
+        height: auto;
+    }
+
+    .jme, .jmeProp, .jmeEditor {
+        width: 220px;
+        height: 220px;
+        margin: auto;
+    }
+
+    .btn-md {
+        min-width: 70px;
+        font-size: 12px;
+    }
+
+    h4 {
+        font-size: 17px;
+    }
+
+    /* Columnas muy pequeñas */
+    .columna {
+        width: 14%;
+        padding-left: 1px;
+        font-size: 11px;
+    }
+
+    .columna2 {
+        width: 22%;
+        font-size: 11px;
+    }
+
+    footer img.img-responsive {
+        max-width: 110px;
+    }
+}

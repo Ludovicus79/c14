@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test JSME</title>
+    <script src="/jsme/jsme.nocache.js"></script>
+</head>
+<body>
+    <h1>Test JSME</h1>
+    <div id="jsme" style="width:300px;height:300px;border:2px solid red;"></div>
+    
+    <script>
+        function jsmeOnLoad() {
+            console.log("JSME cargado!");
+            alert("JSME cargado correctamente");
+            
+            var applet = new JSApplet.JSME("jsme", "300px", "300px", {
+                "options": "depict,number"
+            });
+            
+            // Molécula de prueba (benceno simple)
+            applet.readMolecule("C 6 6 0 0 0 0 0 0 0 0 0");
+        }
+    </script>
+</body>
+</html>
