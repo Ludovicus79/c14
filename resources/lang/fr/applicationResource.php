@@ -213,4 +213,21 @@ Les structures rencontrées dans chacune des recherches peuvent être visualisé
     'menu.logout'  => 'Déconnexion',
     'menu.admin'   => 'Administration',
     'user.user'    => 'Utilisateur :',
+
+    # -- Résultats --
+    'result.results'      => 'Résultats',
+    'result.compounds'    => 'Composés',
+    'result.numeration'   => 'Avec numérotation',
+    'result.noNumeration' => 'Sans numérotation',
+
+    # -- Propriétés / Molécule --
+    'properties.properties' => 'Propriétés',
+    'molecule.spectrum'     => 'Spectre',
+    'molecule.shift' => 'Déplacement (ppm)',
+
+    # -- Formulaire --
+    'form.compare'                 => 'Comparer la sélection',
+    'form.busquedas.subestructura' => 'Recherche par sous-structure',
+    'form.estereoquimica'          => 'Stéréochimie',
+    'errors.requeridos'            => 'Veuillez remplir au moins un champ',
 ];

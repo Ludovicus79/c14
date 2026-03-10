@@ -9,38 +9,37 @@
 
 @section('estilos')
     <style>
-        #jsme_container { width: 400px; height: 400px; margin: 0; }
-        .substructure-controls { padding-top: 100px; }
-        .substructure-controls .form-group { margin-bottom: 40px; }
-        @media (max-width: 700px) {
-            #jsme_container { width: 60%; height: 300px; }
-            .substructure-controls { padding-top: 10px; }
-        .substructure-controls #searchSubstructure1 label,
-.substructure-controls #searchSubstructure2 label,
-.substructure-controls #searchSubstructure3 label {
-    width: auto;
-    padding-right: 5px;
-    float: left;
-    padding-top: 7px;
-}
-
-.substructure-controls #searchSubstructure1,
-.substructure-controls #searchSubstructure2,
-.substructure-controls #searchSubstructure3 {
-    display: flex;
-    align-items: left;
-    margin-bottom: 50px;
-    width: 100%;
-}
-
-.substructure-controls #desplegableFam,
-.substructure-controls #desplegableType,
-.substructure-controls #desplegableGroup {
-    flex: 1;
-    padding-left: 10px;
-}
-
+        #ketcher-container {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            overflow: hidden;
         }
+        #ketcher-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .substructure-controls {
+            padding-top: 60px;
+        }
+        .substructure-controls .form-group {
+            margin-bottom: 20px;
+        }
+        @media (max-width: 767px) {
+            #ketcher-container { height: 350px; }
+            .substructure-controls { padding-top: 20px; }
+        }
+
+        #ketcher-container {
+        width: 80%;
+        height: 500px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        overflow: hidden;
+        }
+
     </style>
 @endsection
 
@@ -48,65 +47,102 @@
     <script src="{{ asset('js/spin.js') }}"></script>
     <script src="{{ asset('js/loadingScreen.js') }}"></script>
     <script src="{{ asset('js/loadFamilies.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('jsme/JSME_2024-04-29/jsme/jsme.nocache.js') }}"></script>
     <script>
-        var jsmeApplet;
-        function jsmeOnLoad() {
-            jsmeApplet = new JSApplet.JSME("jsme_container", "500px", "400px", {"options": "query,hydrogens"});
-        }
-        window.addEventListener('load', function() {
-            if (typeof JSApplet !== 'undefined' && !jsmeApplet) { jsmeOnLoad(); }
-        });
         function getSmile() {
-            if (jsmeApplet) {
-                document.getElementById("smileCode").value = jsmeApplet.smiles();
-                document.getElementById("jmeCode").value = jsmeApplet.jmeFile();
+            try {
+                var iframe = document.getElementById('ketcherFrame');
+                if (iframe && iframe.contentWindow && iframe.contentWindow.ketcher) {
+                    var ketcher = iframe.contentWindow.ketcher;
+                    ketcher.getSmiles().then(function(smiles) {
+                        document.getElementById("smileCode").value = smiles;
+                        document.getElementById("jmeCode").value = smiles;
+                    });
+                }
+            } catch(e) {
+                console.log('Ketcher not ready:', e);
             }
         }
+
+        function submitWithSmiles() {
+            var iframe = document.getElementById('ketcherFrame');
+            if (iframe && iframe.contentWindow && iframe.contentWindow.ketcher) {
+                var ketcher = iframe.contentWindow.ketcher;
+                ketcher.getSmiles().then(function(smiles) {
+                    document.getElementById("smileCode").value = smiles;
+                    document.getElementById("jmeCode").value = smiles;
+                    showLoading();
+                    document.getElementById('substructureForm').submit();
+                });
+            } else {
+                showLoading();
+                document.getElementById('substructureForm').submit();
+            }
+        }
+
         $(document).ready(function() {
             $('#stereoButton').on('click', function() {
                 var btn = $(this);
                 setTimeout(function() {
                     btn.text(btn.hasClass('active') ? 'ON' : 'OFF');
-                }, 5);
+                }, 10);
             });
         });
     </script>
 @endsection
 
 @section('mainContainer')
-    <section class="container main-container">
+    <section class="container-fluid main-container">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+
                 <div class="row">
                     <div class="col-xs-12 text-center">
                         <h4><b>{!! trans('applicationResource.form.busquedas.subestructura') !!}</b></h4>
                     </div>
                 </div>
+
                 <hr class="invisible">
-                <form class="form-horizontal" role="form" method="POST" action="" onsubmit="getSmile(); showLoading();">
+
+                <form id="substructureForm" class="form-horizontal" role="form" method="POST" action="">
                     @csrf
+
                     <div class="row">
-                        {{-- EDITOR JSME --}}
-                        <div class="col-xs-12 col-md-7">
-                            <div id="jsme_container"></div>
+                        {{-- EDITOR KETCHER --}}
+                        <div class="col-xs-10 col-md-8">
+                            <div id="ketcher-container">
+                              <iframe id="ketcherFrame"
+                                        src="/standalone/index.html"
+                                         title="Ketcher Molecule Editor">
+                                </iframe> 
+                            </div>
                         </div>
+
                         {{-- CONTROLES --}}
-                        <div class="col-xs-6 col-md-8 substructure-controls">
+                        <div class="col-xs-10 col-md-5 substructure-controls">
+
+                            {{-- ESTEREOQUÍMICA --}}
                             <div class="form-group row text-center">
-                                <label class="col-xs-5 control-label">{!! trans('applicationResource.form.stereo') !!}</label>
-                                <div class="col-xs-1">
+                                <label class="col-xs-6 control-label">
+                                    {!! trans('applicationResource.form.stereo') !!}
+                                </label>
+                                <div class="col-xs-6">
                                     <div class="btn-group" data-toggle="buttons">
                                         <label class="btn btn-danger {{ old('stereo') ? 'active' : '' }}" id="stereoButton">
-                                            <input type="checkbox" name="stereo" value="1" {{ old('stereo') ? 'checked' : '' }}>
+                                            <input type="checkbox" name="stereo" value="1"
+                                                {{ old('stereo') ? 'checked' : '' }}>
                                             {{ old('stereo') ? 'ON' : 'OFF' }}
                                         </label>
                                     </div>
                                 </div>
                             </div>
+
+                            <hr class="invisible">
+
+                            {{-- FAMILIA / SUBFAMILIA / GRUPO --}}
                             <div class="form-group row">
                                 @include('search.familiesPartial')
                             </div>
+
                             @if ($errors->has('emptyError'))
                                 <div class="row text-center">
                                     <span style="color:red" class="col-xs-12 help-block">
@@ -114,16 +150,25 @@
                                     </span>
                                 </div>
                             @endif
+
+                            <hr class="invisible">
+
+                            {{-- BOTÓN BUSCAR --}}
                             <div class="form-group row text-center">
-                                <button class="btn btn-danger" type="submit" name="submitBtn" value="submitBtn">
+                                <button class="btn btn-danger" type="button"
+                                        onclick="submitWithSmiles()">
                                     {!! trans('applicationResource.form.buscar') !!}
                                 </button>
                             </div>
                         </div>
                     </div>
+
+                    {{-- CAMPOS OCULTOS --}}
                     <input type="hidden" name="smileCode" id="smileCode" value="{{ old('smileCode') }}">
                     <input type="hidden" name="jmeCode" id="jmeCode" value="{{ old('jmeCode') }}">
                     <input type="hidden" name="emptyError" value="">
+                    <input type="hidden" name="submitBtn" value="submitBtn">
+
                 </form>
             </div>
         </div>
